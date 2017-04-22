@@ -17,42 +17,29 @@ import game.view.AllViewsPanel;
 
 public class AmountOfPlayersView extends JPanel
 {
-	private AllViewsPanel allViewsPanel;
-	
-	private SpringLayout layout;
+	private AllViewsPanel allViewsPanel;	
+	private SpringLayout baseLayout;
 	private JLabel twoplayerButton;
 	private JLabel threeplayerButton;
 	private JLabel fourplayerButton;
 	private JLabel startgameButton;
-	private JLabel backLabel;
-	
+	private JLabel backLabel;	
 	private Font labelFont;
 
 	public AmountOfPlayersView(AllViewsPanel allViewsPanel)
 	{
 		this.allViewsPanel = allViewsPanel;
-		layout = new SpringLayout();
+		
+		baseLayout = new SpringLayout();
 		
 		labelFont = new Font("Sitka Text", Font.BOLD, 30);
 		
-		twoplayerButton = new JLabel("2 Players");
-		layout.putConstraint(SpringLayout.NORTH, twoplayerButton, 620, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.WEST, twoplayerButton, 892, SpringLayout.WEST, this);
+		twoplayerButton = new JLabel("2 Players");		
 		threeplayerButton = new JLabel("3 Players");
-		layout.putConstraint(SpringLayout.NORTH, threeplayerButton, 720, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.WEST, threeplayerButton, 0, SpringLayout.WEST, twoplayerButton);
-		
 		fourplayerButton = new JLabel("4 Players");
-		layout.putConstraint(SpringLayout.NORTH, fourplayerButton, 820, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.WEST, fourplayerButton, 0, SpringLayout.WEST, twoplayerButton);
-		layout.putConstraint(SpringLayout.SOUTH, fourplayerButton, -212, SpringLayout.SOUTH, this);
 		startgameButton = new JLabel("Start");
-		layout.putConstraint(SpringLayout.NORTH, startgameButton, 920, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.WEST, startgameButton, 202, SpringLayout.WEST, twoplayerButton);
 		backLabel = new JLabel("Back");
-		layout.putConstraint(SpringLayout.NORTH, backLabel, 920, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.WEST, backLabel, -140, SpringLayout.WEST, twoplayerButton);
-		
+
 		buildPanel();
 		buildPlacements();
 		buildListeners(twoplayerButton);
@@ -67,7 +54,7 @@ public class AmountOfPlayersView extends JPanel
 		this.setVisible(false);
 		this.setOpaque(false);
 		
-		setLayout(layout);
+		setLayout(baseLayout);
 		
 		add(this.twoplayerButton);
 		add(this.threeplayerButton);
@@ -84,29 +71,47 @@ public class AmountOfPlayersView extends JPanel
 		{
 			public void mousePressed(MouseEvent arg0)
 			{
-				if(button == backLabel)
-				{
-					allViewsPanel.closeAmountofPlayersView();
+				if(button == twoplayerButton)
+				{	
+					allViewsPanel.getUsernameView().setAmountOfPlayers(2);
+					allViewsPanel.openUserNameView();
 				}
+				if(button == threeplayerButton)
+				{
+					allViewsPanel.getUsernameView().setAmountOfPlayers(3);
+					allViewsPanel.openUserNameView();
+				}
+				if(button == fourplayerButton)
+				{
+					allViewsPanel.getUsernameView().setAmountOfPlayers(4);
+					allViewsPanel.openUserNameView();
+				}
+				if(button == backLabel)
+				{	allViewsPanel.closeAmountofPlayersView();	}
 			}
 			public void mouseClicked(MouseEvent e){}
 			public void mouseEntered(MouseEvent e)
-			{
-				//if (playSound.getButtonClicks())
-					//playSound.buttonHover();
-				button.setForeground(Color.WHITE);
-			}
+			{	button.setForeground(Color.WHITE);	}
 
 		public void mouseExited(MouseEvent e)
-			{
-				button.setForeground(Color.BLACK);
-			}
+			{	button.setForeground(Color.BLACK);	}
 			public void mouseReleased(MouseEvent e){}
 		});
 	}
 		
 	private void buildPlacements()
 	{
+		baseLayout.putConstraint(SpringLayout.NORTH, twoplayerButton, 620, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, twoplayerButton, 892, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, threeplayerButton, 720, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, threeplayerButton, 0, SpringLayout.WEST, twoplayerButton);
+		baseLayout.putConstraint(SpringLayout.NORTH, fourplayerButton, 820, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, fourplayerButton, 0, SpringLayout.WEST, twoplayerButton);
+		baseLayout.putConstraint(SpringLayout.SOUTH, fourplayerButton, -212, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, startgameButton, 920, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, startgameButton, 202, SpringLayout.WEST, twoplayerButton);
+		baseLayout.putConstraint(SpringLayout.NORTH, backLabel, 920, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, backLabel, -140, SpringLayout.WEST, twoplayerButton);
 	}
 	
 }

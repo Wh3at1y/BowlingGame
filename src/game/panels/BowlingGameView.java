@@ -19,8 +19,6 @@ public class BowlingGameView extends JPanel
 			{
 				baseLayout = new SpringLayout();
 				logoImage = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/MiniBowlLogo.png")));
-				baseLayout.putConstraint(SpringLayout.NORTH, logoImage, 195, SpringLayout.NORTH, this);
-				baseLayout.putConstraint(SpringLayout.WEST, logoImage, 828, SpringLayout.WEST, this);
 				backgroundImage = new JLabel();
 				twoPlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet2.jpg")));
 				threePlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet3.jpg")));
@@ -60,6 +58,8 @@ public class BowlingGameView extends JPanel
 
 		private void buildWindow()
 			{
+				baseLayout.putConstraint(SpringLayout.NORTH, logoImage, 195, SpringLayout.NORTH, this);
+				baseLayout.putConstraint(SpringLayout.WEST, logoImage, 828, SpringLayout.WEST, this);
 				baseLayout.putConstraint(SpringLayout.NORTH, backgroundImage, 0, SpringLayout.NORTH, this);
 				baseLayout.putConstraint(SpringLayout.WEST, backgroundImage, 0, SpringLayout.WEST, this);
 				baseLayout.putConstraint(SpringLayout.SOUTH, backgroundImage, 0, SpringLayout.SOUTH, this);

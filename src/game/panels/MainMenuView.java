@@ -29,7 +29,7 @@ public class MainMenuView extends JPanel
 				exitLabel = new JLabel("Quit Game");
 
 				buildPanel();
-				buildWindow();
+				buildPlacements();
 				buildListeners(this.startLabel);
 				buildListeners(this.optionsLabel);
 				buildListeners(this.exitLabel);
@@ -70,7 +70,7 @@ public class MainMenuView extends JPanel
 					});
 		}
 		
-		private void buildWindow()
+		private void buildPlacements()
 			{
 				baseLayout.putConstraint(SpringLayout.NORTH, startLabel, 620, SpringLayout.NORTH, this);
 				baseLayout.putConstraint(SpringLayout.WEST, startLabel, -20, SpringLayout.WEST, optionsLabel);

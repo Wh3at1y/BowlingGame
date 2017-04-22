@@ -78,6 +78,16 @@ public class AllViewsPanel extends JPanel
 			this.mainMenuView.setVisible(true);
 			this.amountOfPlayersView.setVisible(false);
 		}
+		public void openUserNameView()
+		{
+			this.usernamePanel.setVisible(true);
+			this.amountOfPlayersView.setVisible(false);
+		}
+		public void closeUserNameView()
+		{
+			this.amountOfPlayersView.setVisible(true);
+			this.usernamePanel.setVisible(false);
+		}
 		public void openOptionsView()
 		{
 			this.optionsMenuView.setVisible(true);
@@ -109,6 +119,10 @@ public class AllViewsPanel extends JPanel
 				return this.optionsMenuView;
 			}
 		
+		public UsernameView getUsernameView()
+		{
+			return this.usernamePanel;
+		}
 		private void buildWindow()
 		{
 			baseLayout.putConstraint(SpringLayout.NORTH, backgroundImage, 0, SpringLayout.NORTH, this);

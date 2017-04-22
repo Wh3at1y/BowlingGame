@@ -12,19 +12,17 @@ import javax.swing.*;
 
 public class OptionsView extends JPanel
 	{
-		private AllViewsPanel allViewsPanel;
-		
-		private SpringLayout baseLayout;
-		
+		private AllViewsPanel allViewsPanel;	
+		private SpringLayout baseLayout;	
 		private JLabel toggleMusicLabel;
 		private JLabel toggleClicksLabel;
 		private JLabel backLabel;
-		
 		private Font labelFont;
 
 		public OptionsView(AllViewsPanel allViewsPanel)
 			{
 				this.allViewsPanel = allViewsPanel;
+				
 				baseLayout = new SpringLayout();
 				
 				labelFont = new Font("Sitka Text", Font.BOLD, 30);
