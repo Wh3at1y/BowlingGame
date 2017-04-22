@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import game.controller.GameController;
+import game.controller.MusicController;
 import game.panels.*;
 
 import javax.swing.*;
@@ -12,6 +13,8 @@ import javax.swing.*;
 public class AllViewsPanel extends JPanel
 	{
 		private SpringLayout baseLayout;
+		
+		private MusicController soundPlayer;
 		
 		private MainMenuView mainMenuView;
 		private NewGameView newGameView;
@@ -29,6 +32,8 @@ public class AllViewsPanel extends JPanel
 			{
 				baseLayout = new SpringLayout();
 				
+				soundPlayer = new MusicController();
+				
 				mainMenuView = new MainMenuView(this);
 				newGameView = new NewGameView(this);
 				optionsMenuView = new OptionsView(this);
@@ -44,6 +49,20 @@ public class AllViewsPanel extends JPanel
 				buildWindow();
 			}
 
+		public void setButtonToggle(boolean buttonStatus)
+		{
+			soundPlayer.setButtonClicks(buttonStatus);
+			System.out.println(buttonStatus);
+		}
+		public void playButtonHovor()
+		{
+			soundPlayer.buttonHovorStatus();
+		}
+		public void playButtonClick()
+		{
+			soundPlayer.buttonClickStatus();
+		}
+		
 		private void buildPanel()
 			{
 				setVisible(true);

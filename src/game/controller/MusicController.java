@@ -17,8 +17,15 @@ public class MusicController
 			{
 				this.isButtonClicksOn = true;
 				menuSong();
+				buttonHover();
+				buttonClick();
 			}
 
+		public void setButtonClicks(boolean buttonStatus)
+		{
+			isButtonClicksOn = buttonStatus;
+		}
+		
 		public void menuMusicStatus()
 			{
 				if (isMenuSongPlaying)
@@ -36,17 +43,14 @@ public class MusicController
 			}
 
 		public void buttonClickStatus()
+		{
+			if(this.isButtonClicksOn == true)
+				buttonClick();
+		}
+		public void buttonHovorStatus()
 			{
-				if (isButtonClicksOn)
-					{
-						isButtonClicksOn = false;
-						//baseController.getOptionsPanel().getToggleClicksLabel().setText("Toggle Button Sounds : Off");
-					}
-				else
-					{
-						isButtonClicksOn = true;
-						//baseController.getOptionsPanel().getToggleClicksLabel().setText("Toggle Button Sounds : On");
-					}
+						if(this.isButtonClicksOn == true)
+							buttonHover();
 			}
 
 		public void menuSong()
@@ -62,7 +66,6 @@ public class MusicController
 				URL resource = getClass().getResource("/resources/buttonClick.wav");
 				Media media = new Media(resource.toString());
 				buttonClickPlayer = new MediaPlayer(media);
-				buttonClickPlayer.setVolume(.35);
 				buttonClickPlayer.play();
 			}
 
@@ -71,12 +74,6 @@ public class MusicController
 				URL resource = getClass().getResource("/resources/click.wav");
 				Media media = new Media(resource.toString());
 				buttonHoverPlayer = new MediaPlayer(media);
-				buttonHoverPlayer.setVolume(.2);
 				buttonHoverPlayer.play();
-			}
-
-		public boolean getButtonClicks()
-			{
-				return isButtonClicksOn;
 			}
 	}

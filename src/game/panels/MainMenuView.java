@@ -52,6 +52,8 @@ public class MainMenuView extends JPanel
 				{
 					public void mousePressed(MouseEvent arg0)
 					{
+						allViewsPanel.playButtonClick();	
+						
 						if(button == startLabel)
 						{	allViewsPanel.openAmountOfPlayersView();		}
 						if(button == optionsLabel)
@@ -61,7 +63,8 @@ public class MainMenuView extends JPanel
 					}
 					public void mouseClicked(MouseEvent e){}
 					public void mouseEntered(MouseEvent e)
-					{	button.setForeground(Color.WHITE);	}
+					{	button.setForeground(Color.WHITE);
+						allViewsPanel.playButtonHovor();	}
 					
 					public void mouseExited(MouseEvent e)
 					{	button.setForeground(Color.BLACK);	}
