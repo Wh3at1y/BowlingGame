@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public class GamePanel extends JPanel
 	{
+	//THIS IS THE MAIN MENU
 		private SpringLayout baseLayout;
 		private MainMenu mainMenuPanel;
 		private NewGameMenu newGamePanel;
@@ -23,7 +24,7 @@ public class GamePanel extends JPanel
 				optionsMenuPanel = new OptionsMenu(baseController);
 				newGamePanel = new NewGameMenu(baseController);
 
-				logoImage = new JLabel(new ImageIcon(GamePanel.class.getResource("/resources/logo.png")));
+				logoImage = new JLabel(new ImageIcon(GamePanel.class.getResource("/resources/MiniBowlLogo.png")));
 				backgroundImage = new JLabel();
 
 				buildPanel();
@@ -43,9 +44,9 @@ public class GamePanel extends JPanel
 
 		public void updateBackgroundImage(int x, int y)
 			{
-				ImageIcon imageIcon = new ImageIcon(GamePanel.class.getResource("/resources/colorwave.gif")); // load the image to a imageIcon
+				ImageIcon imageIcon = new ImageIcon(GamePanel.class.getResource("/resources/BackgroundImage.jpg")); // load the image to a imageIcon
 				Image image = imageIcon.getImage(); // transform it
-				Image newimg = image.getScaledInstance(x, y, java.awt.Image.SCALE_FAST); // scale it the smooth way
+				Image newimg = image.getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
 				imageIcon = new ImageIcon(newimg); // transform it back
 				backgroundImage.setIcon(imageIcon);
 			}

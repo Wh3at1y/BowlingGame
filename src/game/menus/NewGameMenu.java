@@ -6,20 +6,34 @@ import javax.swing.*;
 public class NewGameMenu extends JPanel
 	{
 		private SpringLayout baseLayout;
-		private JTextField userNameField;
-		private JLabel userNameLabel;
+		private JLabel twoplayersLabel;
+		private JLabel threeplayersLabel;
+		private JLabel fourplayersLabel;
 		private JLabel startGameLabel;
 		private JLabel backLabel;
 
 		public NewGameMenu(GameController baseController)
 			{
 				baseLayout = new SpringLayout();
-				userNameField = new JTextField();
-				userNameLabel = new JLabel("Enter UserName : ");
+				twoplayersLabel = new JLabel("2 Players ");
+				baseLayout.putConstraint(SpringLayout.NORTH, twoplayersLabel, 620, SpringLayout.NORTH, this);
+				baseLayout.putConstraint(SpringLayout.WEST, twoplayersLabel, 885, SpringLayout.WEST, this);
+				threeplayersLabel = new JLabel("3 Players ");
+				baseLayout.putConstraint(SpringLayout.NORTH, threeplayersLabel, 100, SpringLayout.SOUTH, twoplayersLabel);
+				baseLayout.putConstraint(SpringLayout.WEST, threeplayersLabel, 0, SpringLayout.WEST, twoplayersLabel);
+				fourplayersLabel = new JLabel("4 Players ");
+				baseLayout.putConstraint(SpringLayout.NORTH, fourplayersLabel, 100, SpringLayout.SOUTH, threeplayersLabel);
+				baseLayout.putConstraint(SpringLayout.WEST, fourplayersLabel, 0, SpringLayout.WEST, threeplayersLabel);
 				startGameLabel = new JLabel("Start Game");
+				baseLayout.putConstraint(SpringLayout.NORTH, startGameLabel, 60, SpringLayout.SOUTH, fourplayersLabel);
+				baseLayout.putConstraint(SpringLayout.WEST, startGameLabel, 150, SpringLayout.WEST, fourplayersLabel);
 				backLabel = new JLabel("Back");
+				baseLayout.putConstraint(SpringLayout.NORTH, backLabel, 0, SpringLayout.NORTH, startGameLabel);
+				baseLayout.putConstraint(SpringLayout.EAST, backLabel, -80, SpringLayout.WEST, fourplayersLabel);
 
-				baseController.buildLabelOnly(userNameLabel);
+				baseController.buildLabelOnly(twoplayersLabel);
+				baseController.buildLabelOnly(threeplayersLabel);
+				baseController.buildLabelOnly(fourplayersLabel);
 				baseController.buildButton(startGameLabel);
 				baseController.buildButton(backLabel);
 
@@ -32,29 +46,15 @@ public class NewGameMenu extends JPanel
 				setVisible(false);
 				setOpaque(false);
 				setLayout(baseLayout);
-				add(userNameField);
 				add(startGameLabel);
 				add(backLabel);
-				add(userNameLabel);
+				add(twoplayersLabel);
+				add(threeplayersLabel);
+				add(fourplayersLabel);
 			}
 
 		private void buildWindow()
 			{
-				baseLayout.putConstraint(SpringLayout.WEST, backLabel, 150, SpringLayout.WEST, this);
-				baseLayout.putConstraint(SpringLayout.NORTH, userNameLabel, 200, SpringLayout.NORTH, this);
-				baseLayout.putConstraint(SpringLayout.WEST, userNameLabel, 150, SpringLayout.WEST, this);
-				baseLayout.putConstraint(SpringLayout.NORTH, userNameField, 8, SpringLayout.NORTH, userNameLabel);
-				baseLayout.putConstraint(SpringLayout.WEST, userNameField, 6, SpringLayout.EAST, userNameLabel);
-				baseLayout.putConstraint(SpringLayout.SOUTH, userNameField, 42, SpringLayout.NORTH, userNameLabel);
-				baseLayout.putConstraint(SpringLayout.EAST, userNameField, 167, SpringLayout.EAST, userNameLabel);
-				baseLayout.putConstraint(SpringLayout.NORTH, backLabel, 50, SpringLayout.NORTH, startGameLabel);
-				baseLayout.putConstraint(SpringLayout.NORTH, startGameLabel, 50, SpringLayout.NORTH, userNameLabel);
-				baseLayout.putConstraint(SpringLayout.WEST, startGameLabel, 150, SpringLayout.WEST, this);
-			}
-
-		public JTextField getUserName()
-			{
-				return userNameField;
 			}
 
 		public JLabel getStartGameLabel()
