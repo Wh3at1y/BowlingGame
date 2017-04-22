@@ -6,7 +6,6 @@ import javafx.scene.media.MediaPlayer;
 
 public class MusicController
 	{
-		private GameController baseController;
 		private MediaPlayer mainMenuPlayer;
 		private MediaPlayer buttonClickPlayer;
 		private MediaPlayer buttonHoverPlayer;
@@ -16,8 +15,8 @@ public class MusicController
 
 		public MusicController()
 			{
-				this.baseController = baseController;
 				this.isButtonClicksOn = true;
+				menuSong();
 			}
 
 		public void menuMusicStatus()
