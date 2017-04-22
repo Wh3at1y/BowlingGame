@@ -1,6 +1,9 @@
 package game.menus;
 
 import game.controller.GameController;
+
+import java.awt.Font;
+
 import javax.swing.*;
 
 public class MainMenu extends JPanel
@@ -10,15 +13,25 @@ public class MainMenu extends JPanel
 		private JLabel optionsLabel;
 		private JLabel loadLabel;
 		private JLabel exitLabel;
+		private Font labelFont;
 
 		public MainMenu(GameController baseController)
 			{
 				baseLayout = new SpringLayout();
+				
+				labelFont = new Font("Sitka Text", Font.BOLD, 30);
 
 				startLabel = new JLabel("New Game");
+				baseLayout.putConstraint(SpringLayout.NORTH, startLabel, 620, SpringLayout.NORTH, this);
 				loadLabel = new JLabel("Load Profile");
+				baseLayout.putConstraint(SpringLayout.NORTH, loadLabel, 250, SpringLayout.NORTH, this);
 				optionsLabel = new JLabel("Options");
+				baseLayout.putConstraint(SpringLayout.WEST, startLabel, -20, SpringLayout.WEST, optionsLabel);
+				baseLayout.putConstraint(SpringLayout.NORTH, optionsLabel, 720, SpringLayout.NORTH, this);
+				baseLayout.putConstraint(SpringLayout.WEST, optionsLabel, 898, SpringLayout.WEST, this);
 				exitLabel = new JLabel("Quit Game");
+				baseLayout.putConstraint(SpringLayout.NORTH, exitLabel, 820, SpringLayout.NORTH, this);
+				baseLayout.putConstraint(SpringLayout.WEST, exitLabel, -17, SpringLayout.WEST, optionsLabel);
 				optionsLabel.setName("options");
 
 				baseController.buildButton(startLabel);
@@ -32,6 +45,9 @@ public class MainMenu extends JPanel
 
 		private void buildPanel()
 			{
+				optionsLabel.setFont(labelFont);
+				startLabel.setFont(labelFont);
+				exitLabel.setFont(labelFont);
 				setOpaque(false);
 				setLayout(baseLayout);
 				add(startLabel);
@@ -42,14 +58,7 @@ public class MainMenu extends JPanel
 
 		private void buildWindow()
 			{
-				baseLayout.putConstraint(SpringLayout.NORTH, startLabel, 200, SpringLayout.NORTH, this);
-				baseLayout.putConstraint(SpringLayout.NORTH, exitLabel, 50, SpringLayout.NORTH, optionsLabel);
-				baseLayout.putConstraint(SpringLayout.WEST, exitLabel, 150, SpringLayout.WEST, this);
 				baseLayout.putConstraint(SpringLayout.WEST, loadLabel, 150, SpringLayout.WEST, this);
-				baseLayout.putConstraint(SpringLayout.NORTH, optionsLabel, 50, SpringLayout.NORTH, loadLabel);
-				baseLayout.putConstraint(SpringLayout.NORTH, loadLabel, 50, SpringLayout.NORTH, startLabel);
-				baseLayout.putConstraint(SpringLayout.WEST, optionsLabel, 150, SpringLayout.WEST, this);
-				baseLayout.putConstraint(SpringLayout.WEST, startLabel, 150, SpringLayout.WEST, this);
 			}
 
 		public JLabel getStartLabel()

@@ -7,7 +7,6 @@ import javax.swing.*;
 
 public class GamePanel extends JPanel
 	{
-	//THIS IS THE MAIN MENU
 		private SpringLayout baseLayout;
 		private MainMenu mainMenuPanel;
 		private NewGameMenu newGamePanel;
@@ -23,10 +22,10 @@ public class GamePanel extends JPanel
 				loadMenuPanel = new LoadMenu(baseController);
 				optionsMenuPanel = new OptionsMenu(baseController);
 				newGamePanel = new NewGameMenu(baseController);
-
 				logoImage = new JLabel(new ImageIcon(GamePanel.class.getResource("/resources/MiniBowlLogo.png")));
+				baseLayout.putConstraint(SpringLayout.NORTH, logoImage, 195, SpringLayout.NORTH, this);
+				baseLayout.putConstraint(SpringLayout.WEST, logoImage, 828, SpringLayout.WEST, this);
 				backgroundImage = new JLabel();
-
 				buildPanel();
 				buildWindow();
 			}
@@ -65,8 +64,6 @@ public class GamePanel extends JPanel
 				baseLayout.putConstraint(SpringLayout.WEST, optionsMenuPanel, 0, SpringLayout.WEST, this);
 				baseLayout.putConstraint(SpringLayout.SOUTH, optionsMenuPanel, 0, SpringLayout.SOUTH, this);
 				baseLayout.putConstraint(SpringLayout.EAST, optionsMenuPanel, 0, SpringLayout.EAST, this);
-				baseLayout.putConstraint(SpringLayout.NORTH, logoImage, 40, SpringLayout.NORTH, this);
-				baseLayout.putConstraint(SpringLayout.WEST, logoImage, 85, SpringLayout.WEST, this);
 				baseLayout.putConstraint(SpringLayout.NORTH, loadMenuPanel, 0, SpringLayout.NORTH, this);
 				baseLayout.putConstraint(SpringLayout.WEST, loadMenuPanel, 0, SpringLayout.WEST, this);
 				baseLayout.putConstraint(SpringLayout.SOUTH, loadMenuPanel, 0, SpringLayout.SOUTH, this);
