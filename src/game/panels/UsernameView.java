@@ -26,6 +26,7 @@ public class UsernameView extends JPanel
 	private JLabel player3;
 	private JLabel player4;
 	private JLabel backLabel;
+	private JLabel startgameButton;
 	private Font labelFont;
 	private int amountofPlayers;
 	
@@ -51,24 +52,24 @@ public class UsernameView extends JPanel
 		layout.putConstraint(SpringLayout.WEST, player1, 850, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.EAST, player1, -850, SpringLayout.EAST, this);
 		username2 = new JTextField();
+		layout.putConstraint(SpringLayout.NORTH, username2, 45, SpringLayout.SOUTH, username1);
 		username2.setFont(new Font("Sitka Text", Font.BOLD, 15));
-		layout.putConstraint(SpringLayout.NORTH, username2, 50, SpringLayout.SOUTH, username1);
 		layout.putConstraint(SpringLayout.WEST, username2, 0, SpringLayout.WEST, username1);
 		player2 = new JLabel("Player 2:");
 		player2.setFont(new Font("Sitka Text", Font.ITALIC, 15));
 		layout.putConstraint(SpringLayout.NORTH, player2, 50, SpringLayout.SOUTH, player1);
 		layout.putConstraint(SpringLayout.WEST, player2, 0, SpringLayout.WEST, player1);
 		username3 = new JTextField();
+		layout.putConstraint(SpringLayout.NORTH, username3, 45, SpringLayout.SOUTH, username2);
 		username3.setFont(new Font("Sitka Text", Font.BOLD, 15));
-		layout.putConstraint(SpringLayout.NORTH, username3, 50, SpringLayout.SOUTH, username2);
 		layout.putConstraint(SpringLayout.WEST, username3, 0, SpringLayout.WEST, username1);
 		player3 = new JLabel("Player 3:");
 		player3.setFont(new Font("Sitka Text", Font.ITALIC, 15));
 		layout.putConstraint(SpringLayout.NORTH, player3, 50, SpringLayout.SOUTH, player2);
 		layout.putConstraint(SpringLayout.WEST, player3, 0, SpringLayout.WEST, player2);
 		username4 = new JTextField();
+		layout.putConstraint(SpringLayout.NORTH, username4, 45, SpringLayout.SOUTH, username3);
 		username4.setFont(new Font("Sitka Text", Font.BOLD, 15));
-		layout.putConstraint(SpringLayout.NORTH, username4, 50, SpringLayout.SOUTH, username3);
 		layout.putConstraint(SpringLayout.EAST, username4, 0, SpringLayout.EAST, username1);
 		player4 = new JLabel("Player 4:");
 		player4.setFont(new Font("Sitka Text", Font.ITALIC, 15));
@@ -76,12 +77,16 @@ public class UsernameView extends JPanel
 		layout.putConstraint(SpringLayout.WEST, player4, 0, SpringLayout.WEST, player3);
 		backLabel = new JLabel("Back");
 		layout.putConstraint(SpringLayout.NORTH, backLabel, 920, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.WEST, backLabel, 75, SpringLayout.WEST, username4);
+		layout.putConstraint(SpringLayout.WEST, backLabel, -140, SpringLayout.WEST, username4);
+		startgameButton = new JLabel("Start");
+		layout.putConstraint(SpringLayout.NORTH, startgameButton, 920, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.WEST, startgameButton, 140, SpringLayout.WEST, username4);
 		
 		buildPanel();
 		buildPlacements();
 		displayTextFields();
 		buildListeners(this.backLabel);
+		buildListeners(this.startgameButton);
 		
 	}
 	
@@ -129,11 +134,12 @@ public class UsernameView extends JPanel
 		add(this.username2);
 		add(this.username3);
 		add(this.username4);
-		add(this.backLabel);
 		add(this.player1);
 		add(this.player2);
 		add(this.player3);
 		add(this.player4);
+		add(this.backLabel);
+		add(this.startgameButton);
 	}
 	
 	private void displayTextFields()
