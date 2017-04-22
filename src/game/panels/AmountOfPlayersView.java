@@ -30,18 +30,14 @@ public class AmountOfPlayersView extends JPanel
 
 	public AmountOfPlayersView(AllViewsPanel allViewsPanel)
 	{
-		this.setVisible(false);
 		this.allViewsPanel = allViewsPanel;
 		layout = new SpringLayout();
 		
 		labelFont = new Font("Sitka Text", Font.BOLD, 30);
 		
 		twoplayerButton = new JLabel("2 Players");
-		layout.putConstraint(SpringLayout.NORTH, twoplayerButton, 24, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.WEST, twoplayerButton, 10, SpringLayout.WEST, this);
 		threeplayerButton = new JLabel("3 Players");
-		layout.putConstraint(SpringLayout.NORTH, threeplayerButton, 0, SpringLayout.NORTH, twoplayerButton);
-		layout.putConstraint(SpringLayout.WEST, threeplayerButton, 6, SpringLayout.EAST, twoplayerButton);
+		
 		fourplayerButton = new JLabel("4 Players");
 		layout.putConstraint(SpringLayout.NORTH, fourplayerButton, 0, SpringLayout.NORTH, twoplayerButton);
 		layout.putConstraint(SpringLayout.WEST, fourplayerButton, -183, SpringLayout.EAST, this);
@@ -53,17 +49,23 @@ public class AmountOfPlayersView extends JPanel
 		layout.putConstraint(SpringLayout.SOUTH, startgameButton, 202, SpringLayout.NORTH, this);
 		layout.putConstraint(SpringLayout.EAST, startgameButton, 686, SpringLayout.WEST, this);
 		backLabel = new JLabel("Back");
+		layout.putConstraint(SpringLayout.NORTH, backLabel, 127, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.WEST, backLabel, 179, SpringLayout.WEST, this);
 		
 		buildPanel();
+		buildPlacements();
 		buildListeners(twoplayerButton);
 		buildListeners(threeplayerButton);
 		buildListeners(fourplayerButton);
-		//buildPlacements();	
+		buildListeners(this.backLabel);
 	}
 	
 	private void buildPanel()
 	{
-		setLayout(this.layout);
+		this.setVisible(false);
+		this.setOpaque(false);
+		
+		setLayout(layout);
 		
 		add(this.twoplayerButton);
 		add(this.threeplayerButton);
@@ -74,7 +76,6 @@ public class AmountOfPlayersView extends JPanel
 
 	private void buildListeners(JLabel button)
 	{
-
 		button.setFont(this.labelFont);
 		button.setForeground(Color.BLACK);
 		button.addMouseListener(new MouseListener()
@@ -104,7 +105,10 @@ public class AmountOfPlayersView extends JPanel
 		
 	private void buildPlacements()
 	{
-		
+		layout.putConstraint(SpringLayout.NORTH, twoplayerButton, 24, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.WEST, twoplayerButton, 10, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.NORTH, threeplayerButton, 0, SpringLayout.NORTH, twoplayerButton);
+		layout.putConstraint(SpringLayout.WEST, threeplayerButton, 6, SpringLayout.EAST, twoplayerButton);
 	}
 	
 }
