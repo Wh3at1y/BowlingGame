@@ -22,12 +22,10 @@ public class GamePanel extends JPanel
 				loadMenuPanel = new LoadMenu(baseController);
 				optionsMenuPanel = new OptionsMenu(baseController);
 				newGamePanel = new NewGameMenu(baseController);
-
 				logoImage = new JLabel(new ImageIcon(GamePanel.class.getResource("/resources/MiniBowlLogo.png")));
 				baseLayout.putConstraint(SpringLayout.NORTH, logoImage, 195, SpringLayout.NORTH, this);
 				baseLayout.putConstraint(SpringLayout.WEST, logoImage, 828, SpringLayout.WEST, this);
 				backgroundImage = new JLabel();
-
 				buildPanel();
 				buildWindow();
 			}
