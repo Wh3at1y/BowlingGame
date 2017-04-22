@@ -5,6 +5,7 @@ import java.awt.event.*;
 import javax.swing.JLabel;
 import game.menus.*;
 import game.view.GameFrame;
+import game.view.GamePanel;
 import javafx.embed.swing.JFXPanel;
 
 public class GameController
@@ -12,7 +13,6 @@ public class GameController
 		private GameFrame baseFrame;
 		private ButtonController buttonController;
 		private MusicController playSound;
-		private FileController fileController;
 
 		public GameController()
 			{
@@ -20,20 +20,19 @@ public class GameController
 				baseFrame = new GameFrame(this);
 				buttonController = new ButtonController(this);
 				playSound = new MusicController(this);
-				fileController = new FileController(this);
 				playSound.menuSong(); // Starts the MainMenu song
 			}
 
 		public void buildLabelOnly(JLabel button)
 			{
-				button.setFont(new Font("Microsoft Yi Baiti", Font.PLAIN, 35));
+				button.setFont(new Font("Sitka Text", Font.BOLD, 30));
 				button.setEnabled(false);
 				button.setForeground(Color.WHITE);
 			}
 
 		public void buildButton(JLabel button)
 			{
-				button.setFont(new Font("Microsoft Yi Baiti", Font.PLAIN, 35));
+				button.setFont(new Font("Sitka Text", Font.BOLD, 30));
 				button.setEnabled(false);
 				button.setForeground(Color.WHITE);
 				mainButtonListeners(button); // passes the button into the listener
@@ -66,7 +65,6 @@ public class GameController
 								if (button == getMainMenuPanel().getLoadLabel())
 									{ // Load Button
 										buttonController.loadButtonOperation();
-										fileController.loadProfile();
 									}// Load the load game operations
 								if (button == getMainMenuPanel().getExitLabel()) // Exit Button
 									buttonController.exitButtonOperation(); // Load the exit button operations
@@ -74,14 +72,11 @@ public class GameController
 								/**
 								 * ------------- New Game Listeners
 								 */
-								if (button == getNewGamePanel().getStartGameLabel())
-									fileController.makeFile(getNewGamePanel().getUserName().getText());
+								if (button == getNewGamePanel().getStartGameLabel());
 								/**
 								 * ------------- Load Menu Listeners
 								 */
 								if (button == getLoadPanel().getChooseProfileLabel())
-									fileController.loadProfile();
-
 								/**
 								 * ------------- Options Menu Listeners
 								 */
