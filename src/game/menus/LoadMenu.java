@@ -16,7 +16,6 @@ public class LoadMenu extends JPanel
 		public LoadMenu(GameController baseController)
 			{
 				baseLayout = new SpringLayout();
-				openFileChooser = new JFileChooser();
 				startGameLabel = new JLabel("Start Game");
 				chooseProfileLabel = new JLabel("Select Different Profile");
 				userNameLabel = new JLabel("UserName :");
