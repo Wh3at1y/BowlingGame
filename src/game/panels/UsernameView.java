@@ -128,11 +128,14 @@ public class UsernameView extends JPanel
 	{
 		if(amountofPlayers == 2)
 		{
-			System.out.println("IM DEB");
 			username1.setVisible(true);
 			username2.setVisible(true);
 			username3.setVisible(false);
 			username4.setVisible(false);
+			player1.setVisible(true);
+			player2.setVisible(true);
+			player3.setVisible(false);
+			player4.setVisible(false);
 		}
 		
 		else if(amountofPlayers == 3)
@@ -141,15 +144,22 @@ public class UsernameView extends JPanel
 			username2.setVisible(true);
 			username3.setVisible(true);
 			username4.setVisible(false);
+			player1.setVisible(true);
+			player2.setVisible(true);
+			player3.setVisible(true);
+			player4.setVisible(false);
 		}
 		
 		else if(amountofPlayers == 4)
 		{
-			System.out.println("IM DEB UGGdsf");
 			username1.setVisible(true);
 			username2.setVisible(true);
 			username3.setVisible(true);
 			username4.setVisible(true);
+			player1.setVisible(true);
+			player2.setVisible(true);
+			player3.setVisible(true);
+			player4.setVisible(true);
 		}
 	}
 	
