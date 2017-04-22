@@ -13,34 +13,14 @@ public class GameController
 	{
 		private GameFrame baseFrame;
 		private ButtonController buttonController;
-		private MusicController playSound;
+		//private MusicController playSound;
 
 		public GameController()
 			{
 				new JFXPanel(); // Starts JFXPanel for MP3 Audio
 				baseFrame = new GameFrame();
 				buttonController = new ButtonController();
-				playSound = new MusicController();
-				playSound.menuSong(); // Starts the MainMenu song
+				//playSound = new MusicController();
 			}
 
-		
-
-		public void buildButton(JLabel button)
-			{
-				button.setFont(new Font("Sitka Text", Font.BOLD, 30));
-				button.setEnabled(false);
-				button.setForeground(Color.WHITE);
-			}
-				
-		
-		/*
-		 * --------Getters
-		 */
-
-
-		public MusicController getMusicController()
-			{
-				return playSound;
-			}
 	}
