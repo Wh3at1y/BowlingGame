@@ -27,5 +27,9 @@ public class GameFrame extends JFrame
 			{
 				return basePanel.getGamePanel();
 			}
+		public MainPanel getMainPANEL()
+		{
+			return this.basePanel;
+		}
 
 	}

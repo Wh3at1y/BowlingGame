@@ -112,7 +112,10 @@ public class GameController
 			{
 				return baseFrame.getPanel().getMainMenuPanel();
 			}
-
+		public GameFrame getFRAME()
+		{
+			return this.baseFrame;
+		}
 		public NewGameMenu getNewGamePanel()
 			{
 				return baseFrame.getPanel().getNewGamePanel();
