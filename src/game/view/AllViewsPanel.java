@@ -73,6 +73,11 @@ public class AllViewsPanel extends JPanel
 			this.amountOfPlayersView.setVisible(true);
 			this.mainMenuView.setVisible(false);
 		}
+		public void closeAmountofPlayersView()
+		{
+			this.mainMenuView.setVisible(true);
+			this.amountOfPlayersView.setVisible(false);
+		}
 		public void openOptionsView()
 		{
 			this.optionsMenuView.setVisible(true);
