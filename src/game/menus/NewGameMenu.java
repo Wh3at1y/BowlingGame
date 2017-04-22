@@ -19,10 +19,10 @@ public class NewGameMenu extends JPanel
 				baseLayout.putConstraint(SpringLayout.NORTH, twoplayersLabel, 620, SpringLayout.NORTH, this);
 				baseLayout.putConstraint(SpringLayout.WEST, twoplayersLabel, 885, SpringLayout.WEST, this);
 				threeplayersLabel = new JLabel("3 Players ");
-				baseLayout.putConstraint(SpringLayout.NORTH, threeplayersLabel, 100, SpringLayout.SOUTH, twoplayersLabel);
+				baseLayout.putConstraint(SpringLayout.NORTH, threeplayersLabel, 720, SpringLayout.NORTH, this);
 				baseLayout.putConstraint(SpringLayout.WEST, threeplayersLabel, 0, SpringLayout.WEST, twoplayersLabel);
 				fourplayersLabel = new JLabel("4 Players ");
-				baseLayout.putConstraint(SpringLayout.NORTH, fourplayersLabel, 100, SpringLayout.SOUTH, threeplayersLabel);
+				baseLayout.putConstraint(SpringLayout.NORTH, fourplayersLabel, 820, SpringLayout.NORTH, this);
 				baseLayout.putConstraint(SpringLayout.WEST, fourplayersLabel, 0, SpringLayout.WEST, threeplayersLabel);
 				startGameLabel = new JLabel("Start Game");
 				baseLayout.putConstraint(SpringLayout.NORTH, startGameLabel, 60, SpringLayout.SOUTH, fourplayersLabel);
