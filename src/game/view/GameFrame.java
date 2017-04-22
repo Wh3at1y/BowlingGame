@@ -5,11 +5,11 @@ import javax.swing.JFrame;
 
 public class GameFrame extends JFrame
 	{
-		private MainPanel basePanel;
+		private AllViewsPanel basePanel;
 
-		public GameFrame(GameController baseController)
+		public GameFrame()
 			{
-				basePanel = new MainPanel(baseController);
+				basePanel = new AllViewsPanel();
 				buildFrame();
 			}
 
@@ -20,16 +20,7 @@ public class GameFrame extends JFrame
 				this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 				this.setContentPane(basePanel);
 				this.setVisible(true);
-				this.basePanel.getGamePanel().updateBackgroundImage(this.getWidth(), this.getHeight());
+				this.basePanel.updateBackgroundImage(this.getWidth(), this.getHeight());
 			}
-
-		public GamePanel getPanel()
-			{
-				return basePanel.getGamePanel();
-			}
-		public MainPanel getMainPANEL()
-		{
-			return this.basePanel;
-		}
 
 	}

@@ -1,9 +1,11 @@
-package game.menus;
+package game.panels;
 
 import game.controller.GameController;
+import game.view.AllViewsPanel;
+
 import javax.swing.*;
 
-public class NewGameMenu extends JPanel
+public class NewGameView extends JPanel
 	{
 		private SpringLayout baseLayout;
 		private JLabel twoplayersLabel;
@@ -12,7 +14,7 @@ public class NewGameMenu extends JPanel
 		private JLabel startGameLabel;
 		private JLabel backLabel;
 
-		public NewGameMenu(GameController baseController)
+		public NewGameView(AllViewsPanel allViewsPanel)
 			{
 				baseLayout = new SpringLayout();
 				twoplayersLabel = new JLabel("2 Players ");
@@ -30,12 +32,6 @@ public class NewGameMenu extends JPanel
 				backLabel = new JLabel("Back");
 				baseLayout.putConstraint(SpringLayout.NORTH, backLabel, 0, SpringLayout.NORTH, startGameLabel);
 				baseLayout.putConstraint(SpringLayout.EAST, backLabel, -80, SpringLayout.WEST, fourplayersLabel);
-
-				baseController.buildLabelOnly(twoplayersLabel);
-				baseController.buildLabelOnly(threeplayersLabel);
-				baseController.buildLabelOnly(fourplayersLabel);
-				baseController.buildButton(startGameLabel);
-				baseController.buildButton(backLabel);
 
 				buildPanel();
 				buildWindow();

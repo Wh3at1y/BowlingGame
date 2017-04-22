@@ -1,12 +1,13 @@
-package game.menus;
+package game.panels;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 import game.controller.GameController;
+import game.view.AllViewsPanel;
 
-public class UsernamePanel extends JPanel
+public class UsernameView extends JPanel
 {
 	private SpringLayout layout;
 	private JTextField username1;
@@ -15,9 +16,9 @@ public class UsernamePanel extends JPanel
 	private JTextField username4;
 	private int amountofPlayers;
 	
-	public UsernamePanel(GameController baseController)
+	public UsernameView(AllViewsPanel allViewsPanel)
 	{
-		//this.setVisible(false);
+		this.setVisible(false);
 		this.setOpaque(false);
 		
 		layout = new SpringLayout();

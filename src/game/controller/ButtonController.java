@@ -5,7 +5,7 @@ public class ButtonController
 		private GameController baseController;
 		private boolean isMainMenuShowing;
 
-		public ButtonController(GameController baseController)
+		public ButtonController()
 			{
 				this.baseController = baseController;
 				this.isMainMenuShowing = true;
@@ -17,14 +17,14 @@ public class ButtonController
 
 				if (isMainMenuShowing)
 					{
-						baseController.getMainMenuPanel().setVisible(false);
-						baseController.getNewGamePanel().setVisible(true);
+						//baseController.getMainMenuPanel().setVisible(false);
+						//baseController.getNewGamePanel().setVisible(true);
 						isMainMenuShowing = false;
 					}
 				else
 					{
-						baseController.getMainMenuPanel().setVisible(true);
-						baseController.getNewGamePanel().setVisible(false);
+						//baseController.getMainMenuPanel().setVisible(true);
+						//baseController.getNewGamePanel().setVisible(false);
 						isMainMenuShowing = true;
 					}
 			}
@@ -33,14 +33,12 @@ public class ButtonController
 			{
 				if (isMainMenuShowing)
 					{
-						baseController.getMainMenuPanel().setVisible(false);
-						baseController.getLoadPanel().setVisible(true);
+						//baseController.getMainMenuPanel().setVisible(false);
 						isMainMenuShowing = false;
 					}
 				else
 					{
-						baseController.getMainMenuPanel().setVisible(true);
-						baseController.getLoadPanel().setVisible(false);
+						//baseController.getMainMenuPanel().setVisible(true);
 						isMainMenuShowing = true;
 					}
 			}
@@ -49,22 +47,18 @@ public class ButtonController
 			{
 				if (isMainMenuShowing)
 					{
-						baseController.getMainMenuPanel().setVisible(false);
-						baseController.getOptionsPanel().setVisible(true);
+						//baseController.getMainMenuPanel().setVisible(false);
+						//baseController.getOptionsPanel().setVisible(true);
 						isMainMenuShowing = false;
 					}
 				else
 					{
-						baseController.getMainMenuPanel().setVisible(true);
-						baseController.getOptionsPanel().setVisible(false);
-						baseController.getLoadPanel().setVisible(false);
-						baseController.getNewGamePanel().setVisible(false);
+						//baseController.getMainMenuPanel().setVisible(true);
+						//baseController.getOptionsPanel().setVisible(false);
+						//baseController.getNewGamePanel().setVisible(false);
 						isMainMenuShowing = true;
 					}
 			}
 
-		public void exitButtonOperation()
-			{
-				System.exit(0);
-			}
+		
 	}

@@ -1,5 +1,7 @@
-package game.menus;
+package game.panels;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -11,23 +13,28 @@ import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
 import game.controller.GameController;
+import game.view.AllViewsPanel;
 
-public class AliasPanel extends JPanel
+public class AmountOfPlayersView extends JPanel
 {
-	GameController baseController;
+	private AllViewsPanel allViewsPanel;
+	
 	private SpringLayout layout;
 	private JLabel twoplayerButton;
 	private JLabel threeplayerButton;
 	private JLabel fourplayerButton;
 	private JLabel startgameButton;
-	private UsernamePanel usernamePanel;
+	private JLabel backLabel;
+	
+	private Font labelFont;
 
-	public AliasPanel(GameController baseController)
+	public AmountOfPlayersView(AllViewsPanel allViewsPanel)
 	{
-		this.baseController = baseController;
 		this.setVisible(false);
-		this.setOpaque(false);
+		this.allViewsPanel = allViewsPanel;
 		layout = new SpringLayout();
+		
+		labelFont = new Font("Sitka Text", Font.BOLD, 30);
 		
 		twoplayerButton = new JLabel("2 Players");
 		layout.putConstraint(SpringLayout.NORTH, twoplayerButton, 24, SpringLayout.NORTH, this);
@@ -45,41 +52,54 @@ public class AliasPanel extends JPanel
 		layout.putConstraint(SpringLayout.WEST, startgameButton, 513, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.SOUTH, startgameButton, 202, SpringLayout.NORTH, this);
 		layout.putConstraint(SpringLayout.EAST, startgameButton, 686, SpringLayout.WEST, this);
+		backLabel = new JLabel("Back");
 		
 		buildPanel();
-		buildListeners(twoplayerButton, 2);
-		buildListeners(threeplayerButton, 3);
-		buildListeners(fourplayerButton, 4);
-		buildPlacements();	
+		buildListeners(twoplayerButton);
+		buildListeners(threeplayerButton);
+		buildListeners(fourplayerButton);
+		//buildPlacements();	
 	}
 	
 	private void buildPanel()
 	{
-		//this.setOpaque(true);
 		setLayout(this.layout);
 		
 		add(this.twoplayerButton);
 		add(this.threeplayerButton);
 		add(this.fourplayerButton);
 		add(this.startgameButton);
+		add(this.backLabel);
 	}
 
-	private void buildListeners(JLabel button, int amountofPlayers)
+	private void buildListeners(JLabel button)
 	{
+
+		button.setFont(this.labelFont);
+		button.setForeground(Color.BLACK);
 		button.addMouseListener(new MouseListener()
 		{
 			public void mousePressed(MouseEvent arg0)
 			{
-				baseController.getFRAME().getMainPANEL().getNamePanel().getAmountOfPlayers(amountofPlayers);
-				
+				if(button == backLabel)
+				{
+					allViewsPanel.closeOptionsView();
+				}
+			}
+			public void mouseClicked(MouseEvent e){}
+			public void mouseEntered(MouseEvent e)
+			{
+				//if (playSound.getButtonClicks())
+					//playSound.buttonHover();
+				button.setForeground(Color.WHITE);
 			}
 
-			public void mouseClicked(MouseEvent e){}
-			public void mouseEntered(MouseEvent e){}
-			public void mouseExited(MouseEvent e){}
+		public void mouseExited(MouseEvent e)
+			{
+				button.setForeground(Color.BLACK);
+			}
 			public void mouseReleased(MouseEvent e){}
 		});
-		
 	}
 		
 	private void buildPlacements()

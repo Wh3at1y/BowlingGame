@@ -14,7 +14,7 @@ public class MusicController
 		private boolean isButtonClicksOn;
 		private boolean isMenuSongPlaying;
 
-		public MusicController(GameController baseController)
+		public MusicController()
 			{
 				this.baseController = baseController;
 				this.isButtonClicksOn = true;
@@ -25,13 +25,13 @@ public class MusicController
 				if (isMenuSongPlaying)
 					{
 						mainMenuPlayer.play();
-						baseController.getOptionsPanel().getToggleMusicLabel().setText("Toggle Music : On");
+						//baseController.getOptionsPanel().getToggleMusicLabel().setText("Toggle Music : On");
 						isMenuSongPlaying = false;
 					}
 				else
 					{
 						mainMenuPlayer.pause();
-						baseController.getOptionsPanel().getToggleMusicLabel().setText("Toggle Music : Off");
+						//baseController.getOptionsPanel().getToggleMusicLabel().setText("Toggle Music : Off");
 						isMenuSongPlaying = true;
 					}
 			}
@@ -41,12 +41,12 @@ public class MusicController
 				if (isButtonClicksOn)
 					{
 						isButtonClicksOn = false;
-						baseController.getOptionsPanel().getToggleClicksLabel().setText("Toggle Button Sounds : Off");
+						//baseController.getOptionsPanel().getToggleClicksLabel().setText("Toggle Button Sounds : Off");
 					}
 				else
 					{
 						isButtonClicksOn = true;
-						baseController.getOptionsPanel().getToggleClicksLabel().setText("Toggle Button Sounds : On");
+						//baseController.getOptionsPanel().getToggleClicksLabel().setText("Toggle Button Sounds : On");
 					}
 			}
 

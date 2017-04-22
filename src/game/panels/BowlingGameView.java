@@ -1,11 +1,12 @@
-package game.menus;
+package game.panels;
 
 import java.awt.Image;
 import game.controller.GameController;
-import game.menus.*;
+import game.panels.*;
+
 import javax.swing.*;
 
-public class BowlingGameMenu extends JPanel
+public class BowlingGameView extends JPanel
 	{
 		private SpringLayout baseLayout;
 		private JLabel logoImage;
@@ -14,16 +15,16 @@ public class BowlingGameMenu extends JPanel
 		private JLabel threePlayerBoard;
 		private JLabel fourPlayerBoard;
 
-		public BowlingGameMenu(GameController baseController)
+		public BowlingGameView(GameController baseController)
 			{
 				baseLayout = new SpringLayout();
-				logoImage = new JLabel(new ImageIcon(BowlingGameMenu.class.getResource("/resources/MiniBowlLogo.png")));
+				logoImage = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/MiniBowlLogo.png")));
 				baseLayout.putConstraint(SpringLayout.NORTH, logoImage, 195, SpringLayout.NORTH, this);
 				baseLayout.putConstraint(SpringLayout.WEST, logoImage, 828, SpringLayout.WEST, this);
 				backgroundImage = new JLabel();
-				twoPlayerBoard = new JLabel(new ImageIcon(BowlingGameMenu.class.getResource("/resources/ScoreSheet2.jpg")));
-				threePlayerBoard = new JLabel(new ImageIcon(BowlingGameMenu.class.getResource("/resources/ScoreSheet3.jpg")));
-				fourPlayerBoard = new JLabel(new ImageIcon(BowlingGameMenu.class.getResource("/resources/ScoreSheet4.jpg")));
+				twoPlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet2.jpg")));
+				threePlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet3.jpg")));
+				fourPlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet4.jpg")));
 				buildPanel();
 				buildWindow();
 			}
@@ -50,7 +51,7 @@ public class BowlingGameMenu extends JPanel
 
 		public void updateBackgroundImage(int x, int y)
 			{
-				ImageIcon imageIcon = new ImageIcon(BowlingGameMenu.class.getResource("/resources/GameBackground1.jpg")); // load the image to a imageIcon
+				ImageIcon imageIcon = new ImageIcon(BowlingGameView.class.getResource("/resources/GameBackground1.jpg")); // load the image to a imageIcon
 				Image image = imageIcon.getImage(); // transform it
 				Image newimg = image.getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
 				imageIcon = new ImageIcon(newimg); // transform it back
