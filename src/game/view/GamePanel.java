@@ -47,7 +47,7 @@ public class GamePanel extends JPanel
 			{
 				ImageIcon imageIcon = new ImageIcon(GamePanel.class.getResource("/resources/BackgroundImage.jpg")); // load the image to a imageIcon
 				Image image = imageIcon.getImage(); // transform it
-				Image newimg = image.getScaledInstance(x, y, java.awt.Image.SCALE_FAST); // scale it the smooth way
+				Image newimg = image.getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
 				imageIcon = new ImageIcon(newimg); // transform it back
 				backgroundImage.setIcon(imageIcon);
 			}
