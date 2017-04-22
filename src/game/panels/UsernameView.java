@@ -77,6 +77,7 @@ public class UsernameView extends JPanel
 	public void setAmountOfPlayers(int amountofPlayers)
 	{
 		this.amountofPlayers = amountofPlayers;
+		displayTextFields();
 		System.out.println(this.amountofPlayers);
 	}
 
