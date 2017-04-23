@@ -17,8 +17,8 @@ public class MusicController
 			{
 				this.isButtonClicksOn = true;
 				menuSong();
-				buttonHover();
-				buttonClick();
+				//buttonHover();
+				//buttonClick();
 			}
 
 		public void setButtonClicks(boolean buttonStatus)
@@ -28,16 +28,14 @@ public class MusicController
 		
 		public void menuMusicStatus()
 			{
-				if (isMenuSongPlaying)
+				if (this.isMenuSongPlaying == true)
 					{
 						mainMenuPlayer.play();
-						//baseController.getOptionsPanel().getToggleMusicLabel().setText("Toggle Music : On");
 						isMenuSongPlaying = false;
 					}
 				else
 					{
 						mainMenuPlayer.pause();
-						//baseController.getOptionsPanel().getToggleMusicLabel().setText("Toggle Music : Off");
 						isMenuSongPlaying = true;
 					}
 			}
@@ -49,8 +47,8 @@ public class MusicController
 		}
 		public void buttonHovorStatus()
 			{
-						if(this.isButtonClicksOn == true)
-							buttonHover();
+				if(this.isButtonClicksOn == true)
+					buttonHover();
 			}
 
 		public void menuSong()

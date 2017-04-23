@@ -31,10 +31,7 @@ public class UsernameView extends JPanel
 	private int amountofPlayers;
 	
 	public UsernameView(AllViewsPanel allViewsPanel)
-	{
-		this.setVisible(false);
-		this.setOpaque(false);
-		
+	{	
 		this.allViewsPanel = allViewsPanel;
 		
 		layout = new SpringLayout();
@@ -98,6 +95,8 @@ public class UsernameView extends JPanel
 		{
 			public void mousePressed(MouseEvent arg0)
 			{
+					allViewsPanel.playButtonClick();	
+					
 					if(button == backLabel)
 					{
 						allViewsPanel.closeUserNameView();
@@ -109,7 +108,8 @@ public class UsernameView extends JPanel
 			}
 			public void mouseClicked(MouseEvent e){}
 			public void mouseEntered(MouseEvent e)
-			{	button.setForeground(Color.WHITE);	}
+			{	button.setForeground(Color.WHITE);
+				allViewsPanel.playButtonHovor();	}
 			
 			public void mouseExited(MouseEvent e)
 			{	button.setForeground(Color.BLACK);	}
@@ -123,12 +123,13 @@ public class UsernameView extends JPanel
 	{
 		this.amountofPlayers = amountofPlayers;
 		displayTextFields();
-		System.out.println(this.amountofPlayers);
 	}
 
 	private void buildPanel()
 	{
-		setLayout(this.layout);
+		this.setLayout(this.layout);
+		this.setVisible(false);
+		this.setOpaque(false);
 		
 		add(this.username1);
 		add(this.username2);

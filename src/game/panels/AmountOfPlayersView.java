@@ -41,9 +41,9 @@ public class AmountOfPlayersView extends JPanel
 
 		buildPanel();
 		buildPlacements();
-		buildListeners(twoplayerButton);
-		buildListeners(threeplayerButton);
-		buildListeners(fourplayerButton);
+		buildListeners(this.twoplayerButton);
+		buildListeners(this.threeplayerButton);
+		buildListeners(this.fourplayerButton);
 		buildListeners(this.backLabel);
 		
 	}
@@ -69,6 +69,8 @@ public class AmountOfPlayersView extends JPanel
 		{
 			public void mousePressed(MouseEvent arg0)
 			{
+				allViewsPanel.playButtonClick();	
+				
 				if(button == twoplayerButton)
 				{	
 					allViewsPanel.getUsernameView().setAmountOfPlayers(2);
@@ -89,7 +91,8 @@ public class AmountOfPlayersView extends JPanel
 			}
 			public void mouseClicked(MouseEvent e){}
 			public void mouseEntered(MouseEvent e)
-			{	button.setForeground(Color.WHITE);	}
+			{	button.setForeground(Color.WHITE);
+				allViewsPanel.playButtonHovor();	}
 
 		public void mouseExited(MouseEvent e)
 			{	button.setForeground(Color.BLACK);	}

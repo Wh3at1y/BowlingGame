@@ -49,10 +49,13 @@ public class AllViewsPanel extends JPanel
 				buildWindow();
 			}
 
+		public void setMusicToggle()
+		{
+			soundPlayer.menuMusicStatus();
+		}
 		public void setButtonToggle(boolean buttonStatus)
 		{
 			soundPlayer.setButtonClicks(buttonStatus);
-			System.out.println(buttonStatus);
 		}
 		public void playButtonHovor()
 		{
