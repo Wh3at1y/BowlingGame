@@ -12,12 +12,13 @@ import javax.swing.*;
 
 public class OptionsView extends JPanel
 	{
-		private AllViewsPanel allViewsPanel;	
-		private SpringLayout baseLayout;	
+		private AllViewsPanel allViewsPanel;
+		private SpringLayout baseLayout;
 		private JLabel toggleMusicLabel;
 		private JLabel toggleClicksLabel;
 		private JLabel backLabel;
 		private Font labelFont;
+		private boolean toggleClicks;
 
 		public OptionsView(AllViewsPanel allViewsPanel)
 			{
@@ -36,6 +37,8 @@ public class OptionsView extends JPanel
 				backLabel = new JLabel("Back");
 				baseLayout.putConstraint(SpringLayout.NORTH, backLabel, 820, SpringLayout.NORTH, this);
 				baseLayout.putConstraint(SpringLayout.WEST, backLabel, 135, SpringLayout.WEST, toggleClicksLabel);
+				
+				toggleClicks = true;
 
 				buildPanel();
 				buildWindow();
@@ -66,14 +69,24 @@ public class OptionsView extends JPanel
 						{
 							allViewsPanel.closeOptionsView();
 						}
+						if(button == toggleClicksLabel)
+						{	
+							if(toggleClicks == true)
+							{
+								toggleClicks = false;
+								allViewsPanel.setButtonToggle(toggleClicks);
+							}
+							else if(toggleClicks == false)
+							{
+								toggleClicks = true;
+								allViewsPanel.setButtonToggle(toggleClicks);
+							}
+						}
 					}
 					public void mouseClicked(MouseEvent e){}
 					public void mouseEntered(MouseEvent e)
-					{
-						//if (playSound.getButtonClicks())
-							//playSound.buttonHover();
-						button.setForeground(Color.WHITE);
-					}
+					{	button.setForeground(Color.WHITE);
+						}
 	
 				public void mouseExited(MouseEvent e)
 					{
