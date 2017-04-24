@@ -9,7 +9,6 @@ public class MusicController
 		private MediaPlayer mainMenuPlayer;
 		private MediaPlayer buttonClickPlayer;
 		private MediaPlayer buttonHoverPlayer;
-
 		private boolean isButtonClicksOn;
 		private boolean isMenuSongPlaying;
 
@@ -17,14 +16,10 @@ public class MusicController
 			{
 				this.isButtonClicksOn = true;
 				menuSong();
-				//buttonHover();
-				//buttonClick();
 			}
 
 		public void setButtonClicks(boolean buttonStatus)
-		{
-			isButtonClicksOn = buttonStatus;
-		}
+		{	isButtonClicksOn = buttonStatus;	}
 		
 		public void menuMusicStatus()
 			{
