@@ -11,7 +11,6 @@ public class NewGameView extends JPanel
 		private JLabel twoplayersLabel;
 		private JLabel threeplayersLabel;
 		private JLabel fourplayersLabel;
-		private JLabel startGameLabel;
 		private JLabel backLabel;
 
 		public NewGameView(AllViewsPanel allViewsPanel)
@@ -32,7 +31,6 @@ public class NewGameView extends JPanel
 				setVisible(false);
 				setOpaque(false);
 				setLayout(baseLayout);
-				add(startGameLabel);
 				add(backLabel);
 				add(twoplayersLabel);
 				add(threeplayersLabel);
@@ -46,16 +44,8 @@ public class NewGameView extends JPanel
 				baseLayout.putConstraint(SpringLayout.NORTH, threeplayersLabel, 720, SpringLayout.NORTH, this);
 				baseLayout.putConstraint(SpringLayout.WEST, threeplayersLabel, 0, SpringLayout.WEST, twoplayersLabel);
 				baseLayout.putConstraint(SpringLayout.NORTH, fourplayersLabel, 820, SpringLayout.NORTH, this);
-				baseLayout.putConstraint(SpringLayout.WEST, fourplayersLabel, 0, SpringLayout.WEST, threeplayersLabel);
-				baseLayout.putConstraint(SpringLayout.NORTH, backLabel, 0, SpringLayout.NORTH, startGameLabel);
+				baseLayout.putConstraint(SpringLayout.WEST, fourplayersLabel, 0, SpringLayout.WEST, threeplayersLabel);				
 				baseLayout.putConstraint(SpringLayout.EAST, backLabel, -80, SpringLayout.WEST, fourplayersLabel);
-
-				
-			}
-
-		public JLabel getStartGameLabel()
-			{
-				return startGameLabel;
 			}
 
 		public JLabel getBackLabel()
