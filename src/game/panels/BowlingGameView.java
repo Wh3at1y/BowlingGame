@@ -93,7 +93,7 @@ public class BowlingGameView extends JPanel
 				layout.putConstraint(SpringLayout.SOUTH, p1SmallBox4, 40, SpringLayout.SOUTH, player1Username);
 				p1SmallBox4.setFont(new Font("Sitka Text", Font.BOLD, 45));
 				p1BigBox3 = new JLabel("28");
-				layout.putConstraint(SpringLayout.WEST, p1BigBox3, 1125, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.WEST, p1BigBox3, 1600, SpringLayout.WEST, this);
 				layout.putConstraint(SpringLayout.SOUTH, p1BigBox3, 0, SpringLayout.SOUTH, player1Username);
 				p1BigBox3.setFont(new Font("Sitka Text", Font.BOLD, 45));
 				p1SmallBox3 = new JLabel("8");
@@ -136,6 +136,7 @@ public class BowlingGameView extends JPanel
 				this.add(this.p1BigBox2);
 				this.add(this.p1SmallBox3);
 				this.add(this.p1SmallBox4);
+				this.add(this.p1BigBox3);
 			}
 
 		private void buildWindow()
