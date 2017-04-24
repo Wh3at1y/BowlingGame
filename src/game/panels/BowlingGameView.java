@@ -34,10 +34,11 @@ public class BowlingGameView extends JPanel
 				threePlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet3.jpg")));
 				fourPlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet4.jpg")));
 				
-				player1Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername1());
+				player1Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername1());	
 				player2Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername2());
 				player3Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername3());
 				player4Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername4());
+				
 				
 				buildPanel();
 				buildWindow();
@@ -48,6 +49,11 @@ public class BowlingGameView extends JPanel
 				this.setLayout(this.layout);
 				this.setVisible(false);
 				this.setOpaque(false);
+				
+				this.add(this.player1Username);
+				this.add(this.player2Username);
+				this.add(this.player3Username);
+				this.add(this.player4Username);
 			}
 
 		private void buildWindow()
@@ -58,6 +64,14 @@ public class BowlingGameView extends JPanel
 				layout.putConstraint(SpringLayout.WEST, backgroundImage, 0, SpringLayout.WEST, this);
 				layout.putConstraint(SpringLayout.SOUTH, backgroundImage, 0, SpringLayout.SOUTH, this);
 				layout.putConstraint(SpringLayout.EAST, backgroundImage, 0, SpringLayout.EAST, this);
+				layout.putConstraint(SpringLayout.WEST, player1Username, 77, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.SOUTH, player1Username, -126, SpringLayout.SOUTH, this);
+				layout.putConstraint(SpringLayout.NORTH, player2Username, 0, SpringLayout.NORTH, player1Username);
+				layout.putConstraint(SpringLayout.WEST, player2Username, 81, SpringLayout.EAST, player1Username);
+				layout.putConstraint(SpringLayout.WEST, player3Username, 0, SpringLayout.WEST, player1Username);
+				layout.putConstraint(SpringLayout.SOUTH, player3Username, -45, SpringLayout.SOUTH, this);
+				layout.putConstraint(SpringLayout.NORTH, player4Username, 0, SpringLayout.NORTH, player3Username);
+				layout.putConstraint(SpringLayout.WEST, player4Username, 0, SpringLayout.WEST, player2Username);
 			}
 
 		public void setPlayer1Username(JLabel player1Username)
