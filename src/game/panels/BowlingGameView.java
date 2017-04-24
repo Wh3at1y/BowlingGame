@@ -28,10 +28,6 @@ public class BowlingGameView extends JPanel
 				logoImage = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/MiniBowlLogo.png")));
 				backgroundImage = new JLabel();
 				
-				twoPlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet2.jpg")));
-				threePlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet3.jpg")));
-				fourPlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet4.jpg")));
-				
 				player1Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername1());	
 				player2Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername2());
 				player3Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername3());
