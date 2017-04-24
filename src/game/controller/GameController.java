@@ -12,14 +12,12 @@ import javafx.embed.swing.JFXPanel;
 public class GameController
 	{
 		private GameFrame baseFrame;
-		private ButtonController buttonController;
 		//private MusicController playSound;
 
 		public GameController()
 			{
 				new JFXPanel(); // Starts JFXPanel for MP3 Audio
 				baseFrame = new GameFrame();
-				buttonController = new ButtonController();
 				//playSound = new MusicController();
 			}
 

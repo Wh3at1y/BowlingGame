@@ -8,62 +8,75 @@ import javax.swing.*;
 
 public class BowlingGameView extends JPanel
 	{
-		private SpringLayout baseLayout;
+		private GameController baseController;
+		private SpringLayout layout;
 		private JLabel logoImage;
 		private JLabel backgroundImage;
 		private JLabel twoPlayerBoard;
 		private JLabel threePlayerBoard;
 		private JLabel fourPlayerBoard;
+		private JLabel player1Username;
+		private JLabel player2Username;
+		private JLabel player3Username;
+		private JLabel player4Username;
 
 		public BowlingGameView(GameController baseController)
 			{
-				baseLayout = new SpringLayout();
+				this.baseController= baseController;
+				
+				layout = new SpringLayout();
+				
 				logoImage = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/MiniBowlLogo.png")));
 				backgroundImage = new JLabel();
+				
 				twoPlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet2.jpg")));
 				threePlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet3.jpg")));
 				fourPlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet4.jpg")));
+				
+				player1Username = new JLabel();
+				player2Username = new JLabel();
+				player3Username = new JLabel();
+				player4Username = new JLabel();
+				
 				buildPanel();
 				buildWindow();
 			}
 
 		private void buildPanel()
 			{
-			int amountofPlayers = 2;
-				setLayout(baseLayout);
-				add(logoImage);
-				add(backgroundImage);
-				if(amountofPlayers == 2)
-				{
-					add(twoPlayerBoard);
-				}
-				else if(amountofPlayers == 3)
-				{
-					add(threePlayerBoard);
-				}
-				else if(amountofPlayers == 4)
-				{
-					add(fourPlayerBoard);
-				}
-			}
-
-		public void updateBackgroundImage(int x, int y)
-			{
-				ImageIcon imageIcon = new ImageIcon(BowlingGameView.class.getResource("/resources/GameBackground1.jpg")); // load the image to a imageIcon
-				Image image = imageIcon.getImage(); // transform it
-				Image newimg = image.getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
-				imageIcon = new ImageIcon(newimg); // transform it back
-				backgroundImage.setIcon(imageIcon);
+				this.setLayout(this.layout);
+				this.setVisible(false);
+				this.setOpaque(false);
 			}
 
 		private void buildWindow()
 			{
-				baseLayout.putConstraint(SpringLayout.NORTH, logoImage, 195, SpringLayout.NORTH, this);
-				baseLayout.putConstraint(SpringLayout.WEST, logoImage, 828, SpringLayout.WEST, this);
-				baseLayout.putConstraint(SpringLayout.NORTH, backgroundImage, 0, SpringLayout.NORTH, this);
-				baseLayout.putConstraint(SpringLayout.WEST, backgroundImage, 0, SpringLayout.WEST, this);
-				baseLayout.putConstraint(SpringLayout.SOUTH, backgroundImage, 0, SpringLayout.SOUTH, this);
-				baseLayout.putConstraint(SpringLayout.EAST, backgroundImage, 0, SpringLayout.EAST, this);
+				layout.putConstraint(SpringLayout.NORTH, logoImage, 195, SpringLayout.NORTH, this);
+				layout.putConstraint(SpringLayout.WEST, logoImage, 828, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.NORTH, backgroundImage, 0, SpringLayout.NORTH, this);
+				layout.putConstraint(SpringLayout.WEST, backgroundImage, 0, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.SOUTH, backgroundImage, 0, SpringLayout.SOUTH, this);
+				layout.putConstraint(SpringLayout.EAST, backgroundImage, 0, SpringLayout.EAST, this);
 			}
 
+		public void setPlayer1Username(JLabel player1Username)
+		{
+			this.player1Username = player1Username;
+		}
+
+		public void setPlayer2Username(JLabel player2Username)
+		{
+			this.player2Username = player2Username;
+		}
+
+		public void setPlayer3Username(JLabel player3Username)
+		{
+			this.player3Username = player3Username;
+		}
+
+		public void setPlayer4Username(JLabel player4Username)
+		{
+			this.player4Username = player4Username;
+		}
+		
 	}
