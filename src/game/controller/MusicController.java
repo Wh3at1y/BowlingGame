@@ -56,6 +56,7 @@ public class MusicController
 				URL resource = getClass().getResource("/resources/song.wav");
 				Media media = new Media(resource.toString());
 				mainMenuPlayer = new MediaPlayer(media);
+				mainMenuPlayer.setVolume(.45);
 				mainMenuPlayer.play();
 			}
 
