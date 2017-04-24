@@ -1,13 +1,8 @@
 package game.view;
 
 import java.awt.Image;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-import game.controller.GameController;
 import game.controller.MusicController;
 import game.panels.*;
-
 import javax.swing.*;
 
 public class AllViewsPanel extends JPanel

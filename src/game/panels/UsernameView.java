@@ -1,16 +1,8 @@
 package game.panels;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SpringLayout;
-
-import game.controller.GameController;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 import game.view.AllViewsPanel;
 
 public class UsernameView extends JPanel

@@ -1,10 +1,8 @@
 package game.panels;
 
 import java.awt.Image;
-import game.controller.GameController;
 import game.panels.*;
 import game.view.AllViewsPanel;
-
 import javax.swing.*;
 
 public class BowlingGameView extends JPanel

@@ -1,13 +1,8 @@
 package game.panels;
 
-import game.controller.GameController;
 import game.view.AllViewsPanel;
-
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class OptionsView extends JPanel

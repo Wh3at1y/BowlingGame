@@ -1,6 +1,5 @@
 package game.view;
 
-import game.controller.GameController;
 import javax.swing.JFrame;
 
 public class GameFrame extends JFrame
