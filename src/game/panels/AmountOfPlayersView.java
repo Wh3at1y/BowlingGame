@@ -41,9 +41,7 @@ public class AmountOfPlayersView extends JPanel
 	{
 		this.setVisible(false);
 		this.setOpaque(false);
-		
-		setLayout(baseLayout);
-		
+		this.setLayout(baseLayout);
 		add(this.twoplayerButton);
 		add(this.threeplayerButton);
 		add(this.fourplayerButton);
