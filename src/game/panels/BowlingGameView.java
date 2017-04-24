@@ -11,6 +11,7 @@ public class BowlingGameView extends JPanel
   {
     private AllViewsPanel allViewsPanel;
     private SpringLayout layout;
+    
     private JLabel logoImage;
     private JLabel backgroundImage;
     private JLabel player1Username;
@@ -37,17 +38,17 @@ public class BowlingGameView extends JPanel
     private JLabel p2BigBox3;
     private JLabel p2SmallBox5;
     private JLabel p2SmallBox6;
+    //private JLabel XStrikeScore;
+    //private JLabel spareGif;
+    //private JLabel strikeGif;
     
     private JButton rollButton;
-      private JButton rollAgainButton;
-      private JButton nextPlayerButton;
-     // private JLabel XStrikeScore;
-    //  private JLabel spareGif;
-    //  private JLabel strikeGif;
-      private int selectedPins;
-      private int secondSelectedPins;
-      
-      private int scorePosition;
+    private JButton rollAgainButton;
+    private JButton nextPlayerButton;
+
+    private int selectedPins;
+    private int secondSelectedPins;  
+    private int scorePosition;
 
     public BowlingGameView(AllViewsPanel allViewsPanel)
       {
@@ -127,37 +128,30 @@ public class BowlingGameView extends JPanel
         
         p2SmallBox6 = new JLabel();
         p2SmallBox6.setFont(new Font("Sitka Text", Font.BOLD, 45));
-          
-        
+           
         rollButton = new JButton("Roll Ball"); 
-        layout.putConstraint(SpringLayout.NORTH, rollButton, 22, SpringLayout.NORTH, this);
-        layout.putConstraint(SpringLayout.EAST, rollButton, -444, SpringLayout.EAST, this);
-            nextPlayerButton = new JButton("Next Player");
-            layout.putConstraint(SpringLayout.NORTH, nextPlayerButton, 0, SpringLayout.NORTH, rollButton);
-            layout.putConstraint(SpringLayout.WEST, nextPlayerButton, 156, SpringLayout.EAST, rollButton);
-            rollAgainButton = new JButton("Roll Again");
-            layout.putConstraint(SpringLayout.NORTH, rollAgainButton, 0, SpringLayout.NORTH, rollButton);
-            layout.putConstraint(SpringLayout.WEST, rollAgainButton, 38, SpringLayout.EAST, rollButton);
+        nextPlayerButton = new JButton("Next Player"); 
+        rollAgainButton = new JButton("Roll Again"); 
             
-            this.rollButton.disable();
-            this.nextPlayerButton.setVisible(false);
-            this.rollAgainButton.setVisible(false);
+        this.rollButton.disable();
+        this.nextPlayerButton.setVisible(false);
+        this.rollAgainButton.setVisible(false);
             
-           // XStrikeScore = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/XRedStrike.png")));
-         //   spareGif = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/SpareGif.png")));
-           // strikeGif = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/StrikeGif.png")));
-          //  this.XStrikeScore.setVisible(false);
-        //    this.spareGif.setVisible(false);
-       //     this.strikeGif.setVisible(false);
+        //XStrikeScore = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/XRedStrike.png")));
+        //spareGif = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/SpareGif.png")));
+        // strikeGif = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/StrikeGif.png")));
+        //this.XStrikeScore.setVisible(false);
+        //this.spareGif.setVisible(false);
+        //this.strikeGif.setVisible(false);
               
-            this.scorePosition = 1;
+        this.scorePosition = 1;
             
-            this.buildPanel();
-            this.buildWindow();
-            this.buildListenersP1F1();
+        this.buildPanel();
+        this.buildWindow();
+        this.buildListenersP1F1();
       }
 
-    public  void updatePlayerUsernames()
+    public void updatePlayerUsernames()
     {
       player1Username.setText(this.allViewsPanel.getUsernameView().getUsername1());  
       player2Username.setText(this.allViewsPanel.getUsernameView().getUsername2());
@@ -222,8 +216,7 @@ public class BowlingGameView extends JPanel
                 rollButton.setVisible(false);
                 rollAgainButton.setVisible(false);
                 //THIS WILL BE A STRIKE ON THE BOARD. X   p1SmallBox1
-                
-                
+                            
                 //p1BigBox1
                 if(scorePosition == 1)
                 {
@@ -283,8 +276,7 @@ public class BowlingGameView extends JPanel
                   p1SmallBox5.setText(Integer.toString(selectedPins));
                 else if(scorePosition == 6)
                   p2SmallBox5.setText(Integer.toString(selectedPins));
-                  
-                  
+                         
                 rollButton.setVisible(false);
                 rollAgainButton.setVisible(true);
                 rollAgainButton.enable();
@@ -306,8 +298,7 @@ public class BowlingGameView extends JPanel
             else
               secondSelectedPins = rand.nextInt(11 - selectedPins);
             System.out.println(selectedPins);
-              
-            
+                
             //----SPARE-----
             if(secondSelectedPins + selectedPins == 10)
             {
@@ -390,17 +381,18 @@ public class BowlingGameView extends JPanel
          
          nextPlayerButton.addActionListener(new ActionListener()
          {
-            public void actionPerformed(ActionEvent click)
+            private Object allViewsPanel;
+
+			public void actionPerformed(ActionEvent click)
             {
               scorePosition++;
               //strikeGif.setVisible(false);
               nextPlayerButton.setVisible(false);
-              rollButton.setVisible(true);
+              rollButton.setVisible(true);   
             }
          });
         }
-    
-   
+     
     private void buildWindow()
       {
         layout.putConstraint(SpringLayout.NORTH, logoImage, 195, SpringLayout.NORTH, this);
@@ -408,8 +400,7 @@ public class BowlingGameView extends JPanel
         layout.putConstraint(SpringLayout.NORTH, backgroundImage, 0, SpringLayout.NORTH, this);
         layout.putConstraint(SpringLayout.WEST, backgroundImage, 0, SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.SOUTH, backgroundImage, 0, SpringLayout.SOUTH, this);
-        layout.putConstraint(SpringLayout.EAST, backgroundImage, 0, SpringLayout.EAST, this);
-        
+        layout.putConstraint(SpringLayout.EAST, backgroundImage, 0, SpringLayout.EAST, this); 
         layout.putConstraint(SpringLayout.WEST, player1Username, 57, SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.SOUTH, player1Username, -200, SpringLayout.SOUTH, this);
         layout.putConstraint(SpringLayout.WEST, player2Username, 0, SpringLayout.WEST, player1Username);
@@ -458,6 +449,12 @@ public class BowlingGameView extends JPanel
         layout.putConstraint(SpringLayout.SOUTH, p2SmallBox5, -40, SpringLayout.SOUTH, player2Username);
         layout.putConstraint(SpringLayout.WEST, p2SmallBox6, 1810, SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.SOUTH, p2SmallBox6, 40, SpringLayout.SOUTH, player2Username);
+        layout.putConstraint(SpringLayout.NORTH, rollButton, 22, SpringLayout.NORTH, this);
+        layout.putConstraint(SpringLayout.EAST, rollButton, -444, SpringLayout.EAST, this);
+        layout.putConstraint(SpringLayout.NORTH, nextPlayerButton, 0, SpringLayout.NORTH, rollButton);
+        layout.putConstraint(SpringLayout.WEST, nextPlayerButton, 156, SpringLayout.EAST, rollButton);
+        layout.putConstraint(SpringLayout.NORTH, rollAgainButton, 0, SpringLayout.NORTH, rollButton);
+        layout.putConstraint(SpringLayout.WEST, rollAgainButton, 38, SpringLayout.EAST, rollButton);
       }
 
     public void setPlayer1Username(JLabel player1Username)
