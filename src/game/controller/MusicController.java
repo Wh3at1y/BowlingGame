@@ -40,6 +40,7 @@ public class MusicController
 			if(this.isButtonClicksOn == true)
 				buttonClick();
 		}
+		
 		public void buttonHovorStatus()
 			{
 				if(this.isButtonClicksOn == true)
