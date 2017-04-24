@@ -7,23 +7,19 @@ import javax.swing.*;
 
 public class AllViewsPanel extends JPanel
 	{
-		private SpringLayout baseLayout;
-		
-		private MusicController soundPlayer;
-		
+		private SpringLayout baseLayout;	
+		private MusicController soundPlayer;	
 		private MainMenuView mainMenuView;
 		private NewGameView newGameView;
 		private OptionsView optionsMenuView;
-
-		
-		
 		private AmountOfPlayersView amountOfPlayersView;
 		private UsernameView usernamePanel;
 		private BowlingGameView bowlingGameView;
-		
-		
 		private JLabel logoImage;
 		private JLabel backgroundImage;
+		private boolean isGameMenuShowing;
+		private int frameWidth;
+		private int frameHeight;
 
 		public AllViewsPanel()
 			{
@@ -42,6 +38,8 @@ public class AllViewsPanel extends JPanel
 				logoImage = new JLabel(new ImageIcon(AllViewsPanel.class.getResource("/resources/MiniBowlLogo.png")));
 				
 				backgroundImage = new JLabel();
+			
+				this.isGameMenuShowing = false;
 				
 				buildPanel();
 				buildWindow();
@@ -81,11 +79,24 @@ public class AllViewsPanel extends JPanel
 
 		public void updateBackgroundImage(int x, int y)
 			{
-				ImageIcon imageIcon = new ImageIcon(AllViewsPanel.class.getResource("/resources/BackgroundImage.jpg")); // load the image to a imageIcon
-				Image image = imageIcon.getImage(); // transform it
-				Image newimg = image.getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
-				imageIcon = new ImageIcon(newimg); // transform it back
-				backgroundImage.setIcon(imageIcon);
+				this.frameWidth = x;
+				this.frameHeight = y;
+				if(this.isGameMenuShowing == false)
+				{
+					ImageIcon imageIcon = new ImageIcon(AllViewsPanel.class.getResource("/resources/BackgroundImage.jpg")); // load the image to a imageIcon
+					Image image = imageIcon.getImage(); // transform it
+					Image newimg = image.getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+					imageIcon = new ImageIcon(newimg); // transform it back
+					backgroundImage.setIcon(imageIcon);
+				}
+				else
+				{
+					ImageIcon imageIcon = new ImageIcon(AllViewsPanel.class.getResource("/resources/Background2Players.jpg")); // load the image to a imageIcon
+					Image image = imageIcon.getImage(); // transform it
+					Image newimg = image.getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+					imageIcon = new ImageIcon(newimg); // transform it back
+					backgroundImage.setIcon(imageIcon);
+				}
 			}
 	
 		public void openAmountOfPlayersView()
@@ -134,6 +145,15 @@ public class AllViewsPanel extends JPanel
 			System.exit(0);
 		}
 		
+		public JLabel getLogo()
+		{
+			return this.logoImage;
+		}
+		public void setBackgroundStatus(boolean status)
+		{
+			this.isGameMenuShowing = status;
+			this.updateBackgroundImage(this.frameWidth, this.frameHeight);
+		}
 		public MainMenuView getNewGamePanel()
 			{
 				return this.mainMenuView;
@@ -153,6 +173,7 @@ public class AllViewsPanel extends JPanel
 		{
 			return this.usernamePanel;
 		}
+		
 		private void buildWindow()
 		{
 			baseLayout.putConstraint(SpringLayout.NORTH, backgroundImage, 0, SpringLayout.NORTH, this);

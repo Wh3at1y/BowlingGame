@@ -100,6 +100,9 @@ public class UsernameView extends JPanel
 				if(button == startgameButton)
 				{
 					allViewsPanel.openBowlingGameView();
+					allViewsPanel.setBackgroundStatus(true);
+					allViewsPanel.getLogo().setVisible(false);
+					
 				}
 			}
 			public void mouseClicked(MouseEvent e){}
