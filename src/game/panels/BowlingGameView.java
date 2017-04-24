@@ -240,7 +240,7 @@ public class BowlingGameView extends JPanel
               {
                 //strikeGif.setVisible(true);
                 nextPlayerButton.setVisible(true);
-                rollButton.setVisible(false);
+                //rollButton.setVisible(false);
                 //THIS WILL BE A STRIKE ON THE BOARD. X   p1BigBox1
                 p1BigBox1.setText("X");
               }
@@ -249,7 +249,7 @@ public class BowlingGameView extends JPanel
               {
                 //ADD WHAT THEY ROLLED TO THE BOARD IN p1SmallBox1. VARIABLE = (selectedPins)
                 p1SmallBox1.setText(Integer.toString(selectedPins));
-                rollButton.setVisible(false);
+               // rollButton.setVisible(false);
                 rollAgainButton.setVisible(true);
                 rollAgainButton.enable();
               }
@@ -265,10 +265,12 @@ public class BowlingGameView extends JPanel
             Random rand = new Random();
             //Generates a number thats left. (if first bowl is 6, will generate between 0-4)
             int secondSelectedPins;
-            if(selectedPins != 0)
-            	secondSelectedPins = Math.abs(rand.nextInt()) % selectedPins;
+
+            if(selectedPins == 0)
+            	secondSelectedPins = rand.nextInt(10) + 1;
             else
-            	secondSelectedPins = Math.abs(rand.nextInt()) % 11;
+            	secondSelectedPins = rand.nextInt(10 - selectedPins);
+            System.out.println(selectedPins);
             	
             
             //----SPARE-----
