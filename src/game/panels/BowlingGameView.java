@@ -78,15 +78,15 @@ public class BowlingGameView extends JPanel
 				layout.putConstraint(SpringLayout.NORTH, rollingUsername, 100, SpringLayout.NORTH, this);
 				layout.putConstraint(SpringLayout.WEST, rollingUsername, 57, SpringLayout.WEST, this);
 				rollingUsername.setFont(new Font("Sitka Text", Font.BOLD, 45));
-				p1BigBox1 = new JLabel("28");
+				p1BigBox1 = new JLabel();
 				layout.putConstraint(SpringLayout.WEST, p1BigBox1, 675, SpringLayout.WEST, this);
 				layout.putConstraint(SpringLayout.SOUTH, p1BigBox1, 0, SpringLayout.SOUTH, player1Username);
 				p1BigBox1.setFont(new Font("Sitka Text", Font.BOLD, 45));
-				p1SmallBox1 = new JLabel("8");
+				p1SmallBox1 = new JLabel();
 				layout.putConstraint(SpringLayout.WEST, p1SmallBox1, 910, SpringLayout.WEST, this);
 				layout.putConstraint(SpringLayout.SOUTH, p1SmallBox1, -40, SpringLayout.SOUTH, player1Username);
 				p1SmallBox1.setFont(new Font("Sitka Text", Font.BOLD, 45));
-				p1SmallBox2 = new JLabel("8");
+				p1SmallBox2 = new JLabel();
 				layout.putConstraint(SpringLayout.WEST, p1SmallBox2, 910, SpringLayout.WEST, this);
 				layout.putConstraint(SpringLayout.SOUTH, p1SmallBox2, 40, SpringLayout.SOUTH, player1Username);
 				p1SmallBox2.setFont(new Font("Sitka Text", Font.BOLD, 45));
@@ -223,78 +223,86 @@ public class BowlingGameView extends JPanel
 				this.add(this.p2SmallBox6);
 			}
 
-		 private void buildListeners()
-	      {
-	      
-	        rollButton.addActionListener(new ActionListener()
-	        {
-	          public void actionPerformed(ActionEvent click)
-	          {
-	            Random rand = new Random();
-	            selectedPins = Math.abs(rand.nextInt()) % 11;
-	            
-	            System.out.println(selectedPins);
-	            
-	            //----STRIKE----
-	            if(selectedPins == 10)
-	            {
-	              //strikeGif.setVisible(true);
-	              nextPlayerButton.setVisible(true);
-	              rollButton.disable();
-	              //NEED TO PUT SCORE ON SCOREBOARD, THIS WILL BE A STRIKE ON THE BOARD. X
-	            }
-	            
-	            else
-	            {
-	              //ADD WHAT THEY ROLLED TO THE BOARD IN p1SmallBox1. VARIABLE = (selectedPins)
-	              rollButton.setVisible(false);
-	              rollAgainButton.setVisible(true);
-	              rollAgainButton.enable();
-	            }
-	            
-	          }
-	        });
-	      
-	        
-	       this.rollAgainButton.addActionListener(new ActionListener()
-	       {
-	        public void actionPerformed(ActionEvent click)
-	        {
-	          Random rand = new Random();
-	          //Generates a number thats left. (if first bowl is 6, will generate between 0-4)
-	          int secondSelectedPins = Math.abs(rand.nextInt()) % selectedPins++;
-	          
-	          //----SPARE-----
-	          if(secondSelectedPins + selectedPins == 10)
-	          {
-	            //PUT ON SCOREBOARD "/" IN SECOND BOX
-	            //p1BigBox.setVisible(false);
-	            //p1BigBox1.setText(10);
-	           // spareGif.setVisible(true);
-	            rollAgainButton.disable();
-	            rollAgainButton.setVisible(false);
-	            nextPlayerButton.setVisible(true);
-	          }
-	          else  //----NOT SPARE----
-	          {
-	            p1SmallBox2.setText(Integer.toString(secondSelectedPins));
-	            p1BigBox1.setText(Integer.toString(selectedPins + secondSelectedPins));
-	            rollAgainButton.disable();
-	            rollAgainButton.setVisible(false);
-	            nextPlayerButton.setVisible(true);
-	          }
-	        }
-	       });
-	       
-	       nextPlayerButton.addActionListener(new ActionListener()
-	       {
-	          public void actionPerformed(ActionEvent click)
-	          {
-	            //strikeGif.setVisible(false);
-	            nextPlayerButton.disable();
-	          }
-	       });
-	      }
+		private void buildListeners()
+        {
+        
+          rollButton.addActionListener(new ActionListener()
+          {
+            public void actionPerformed(ActionEvent click)
+            {
+              Random rand = new Random();
+              selectedPins = Math.abs(rand.nextInt()) % 11;
+              
+              System.out.println(selectedPins);
+              
+              //----STRIKE----
+              if(selectedPins == 10)
+              {
+                //strikeGif.setVisible(true);
+                nextPlayerButton.setVisible(true);
+                rollButton.setVisible(false);
+                //THIS WILL BE A STRIKE ON THE BOARD. X   p1BigBox1
+                p1BigBox1.setText("X");
+              }
+              
+              else
+              {
+                //ADD WHAT THEY ROLLED TO THE BOARD IN p1SmallBox1. VARIABLE = (selectedPins)
+                p1SmallBox1.setText(Integer.toString(selectedPins));
+                rollButton.setVisible(false);
+                rollAgainButton.setVisible(true);
+                rollAgainButton.enable();
+              }
+              
+            }
+          });
+        
+          
+         this.rollAgainButton.addActionListener(new ActionListener()
+         {
+          public void actionPerformed(ActionEvent click)
+          {
+            Random rand = new Random();
+            //Generates a number thats left. (if first bowl is 6, will generate between 0-4)
+            int secondSelectedPins;
+            if(selectedPins != 0)
+            	secondSelectedPins = Math.abs(rand.nextInt()) % selectedPins;
+            else
+            	secondSelectedPins = Math.abs(rand.nextInt()) % 11;
+            	
+            
+            //----SPARE-----
+            if(secondSelectedPins + selectedPins == 10)
+            {
+              //PUT ON SCOREBOARD "/" IN SECOND BOX
+              p1SmallBox2.setText("/");
+              //p1BigBox.setVisible(false);
+              //p1BigBox1.setText(10);
+             // spareGif.setVisible(true);
+              rollAgainButton.disable();
+              rollAgainButton.setVisible(false);
+              nextPlayerButton.setVisible(true);
+            }
+            else  //----NOT SPARE----
+            {
+              p1SmallBox2.setText(Integer.toString(secondSelectedPins));
+              p1BigBox1.setText(Integer.toString(selectedPins + secondSelectedPins));
+              rollAgainButton.disable();
+              rollAgainButton.setVisible(false);
+              nextPlayerButton.setVisible(true);
+            }
+          }
+         });
+         
+         nextPlayerButton.addActionListener(new ActionListener()
+         {
+            public void actionPerformed(ActionEvent click)
+            {
+              //strikeGif.setVisible(false);
+              nextPlayerButton.disable();
+            }
+         });
+        }
 		private void buildWindow()
 			{
 				layout.putConstraint(SpringLayout.NORTH, logoImage, 195, SpringLayout.NORTH, this);
