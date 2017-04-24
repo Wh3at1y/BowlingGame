@@ -4,49 +4,50 @@ import game.view.AllViewsPanel;
 import javax.swing.*;
 
 public class NewGameView extends JPanel
-{
-	private SpringLayout baseLayout;
-	private JLabel twoplayersLabel;
-	private JLabel threeplayersLabel;
-	private JLabel fourplayersLabel;
-	private JLabel backLabel;
-
-	public NewGameView(AllViewsPanel allViewsPanel)
 	{
-		baseLayout = new SpringLayout();
+		private SpringLayout baseLayout;
+		private JLabel twoplayersLabel;
+		private JLabel threeplayersLabel;
+		private JLabel fourplayersLabel;
+		private JLabel backLabel;
+
+		public NewGameView(AllViewsPanel allViewsPanel)
+			{
+				baseLayout = new SpringLayout();
 				
-		twoplayersLabel = new JLabel("2 Players ");
-		threeplayersLabel = new JLabel("3 Players ");
-		fourplayersLabel = new JLabel("4 Players ");
-		backLabel = new JLabel("Back");
+				twoplayersLabel = new JLabel("2 Players ");
+				threeplayersLabel = new JLabel("3 Players ");
+				fourplayersLabel = new JLabel("4 Players ");
+				backLabel = new JLabel("Back");
 				
-		buildPanel();
-		buildWindow();
+				buildPanel();
+				buildWindow();
+			}
+
+		private void buildPanel()
+			{
+				setVisible(false);
+				setOpaque(false);
+				setLayout(baseLayout);
+				add(backLabel);
+				add(twoplayersLabel);
+				add(threeplayersLabel);
+				add(fourplayersLabel);
+			}
+
+		private void buildWindow()
+			{
+				baseLayout.putConstraint(SpringLayout.NORTH, twoplayersLabel, 620, SpringLayout.NORTH, this);
+				baseLayout.putConstraint(SpringLayout.WEST, twoplayersLabel, 885, SpringLayout.WEST, this);
+				baseLayout.putConstraint(SpringLayout.NORTH, threeplayersLabel, 720, SpringLayout.NORTH, this);
+				baseLayout.putConstraint(SpringLayout.WEST, threeplayersLabel, 0, SpringLayout.WEST, twoplayersLabel);
+				baseLayout.putConstraint(SpringLayout.NORTH, fourplayersLabel, 820, SpringLayout.NORTH, this);
+				baseLayout.putConstraint(SpringLayout.WEST, fourplayersLabel, 0, SpringLayout.WEST, threeplayersLabel);				
+				baseLayout.putConstraint(SpringLayout.EAST, backLabel, -80, SpringLayout.WEST, fourplayersLabel);
+			}
+
+		public JLabel getBackLabel()
+			{
+				return backLabel;
+			}
 	}
-
-	private void buildPanel()
-	{
-		this.setVisible(false);
-		this.setOpaque(false);
-		this.setLayout(baseLayout);
-		add(this.backLabel);
-		add(this.twoplayersLabel);
-		add(this.threeplayersLabel);
-		add(this.fourplayersLabel);
-	}
-
-	private void buildWindow()
-	{
-		baseLayout.putConstraint(SpringLayout.NORTH, twoplayersLabel, 620, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, twoplayersLabel, 885, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, threeplayersLabel, 720, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, threeplayersLabel, 0, SpringLayout.WEST, twoplayersLabel);
-		baseLayout.putConstraint(SpringLayout.NORTH, fourplayersLabel, 820, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, fourplayersLabel, 0, SpringLayout.WEST, threeplayersLabel);				
-		baseLayout.putConstraint(SpringLayout.EAST, backLabel, -80, SpringLayout.WEST, fourplayersLabel);
-	}
-
-	public JLabel getBackLabel()
-	{	return backLabel;	}
-
-}
