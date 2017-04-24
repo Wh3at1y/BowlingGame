@@ -269,7 +269,7 @@ public class BowlingGameView extends JPanel
             if(selectedPins == 0)
             	secondSelectedPins = rand.nextInt(10) + 1;
             else
-            	secondSelectedPins = rand.nextInt(10 - selectedPins);
+            	secondSelectedPins = rand.nextInt(11 - selectedPins);
             System.out.println(selectedPins);
             	
             
@@ -279,7 +279,7 @@ public class BowlingGameView extends JPanel
               //PUT ON SCOREBOARD "/" IN SECOND BOX
               p1SmallBox2.setText("/");
               //p1BigBox.setVisible(false);
-              //p1BigBox1.setText(10);
+              p1SmallBox2.setText(Integer.toString(10));
              // spareGif.setVisible(true);
               rollAgainButton.disable();
               rollAgainButton.setVisible(false);
