@@ -240,9 +240,12 @@ public class BowlingGameView extends JPanel
               {
                 //strikeGif.setVisible(true);
                 nextPlayerButton.setVisible(true);
-                //rollButton.setVisible(false);
-                //THIS WILL BE A STRIKE ON THE BOARD. X   p1BigBox1
-                p1BigBox1.setText("X");
+                rollButton.setVisible(false);
+                rollAgainButton.setVisible(false);
+                //THIS WILL BE A STRIKE ON THE BOARD. X   p1SmallBox1
+                p1BigBox1.setText("");
+                p1SmallBox1.setText("X");
+                p1SmallBox2.setText("");
               }
               
               else
@@ -289,6 +292,92 @@ public class BowlingGameView extends JPanel
             {
               p1SmallBox2.setText(Integer.toString(secondSelectedPins));
               p1BigBox1.setText(Integer.toString(selectedPins + secondSelectedPins));
+              rollAgainButton.disable();
+              rollAgainButton.setVisible(false);
+              nextPlayerButton.setVisible(true);
+            }
+          }
+         });
+         
+         nextPlayerButton.addActionListener(new ActionListener()
+         {
+            public void actionPerformed(ActionEvent click)
+            {
+              //strikeGif.setVisible(false);
+              nextPlayerButton.disable();
+              buildListeners1();
+            }
+         });
+        }
+		
+		private void buildListeners1()
+        {
+        
+          rollButton.addActionListener(new ActionListener()
+          {
+            public void actionPerformed(ActionEvent click)
+            {
+              Random rand = new Random();
+              selectedPins = Math.abs(rand.nextInt()) % 11;
+              
+              System.out.println(selectedPins);
+              
+              //----STRIKE----
+              if(selectedPins == 10)
+              {
+                //strikeGif.setVisible(true);
+                nextPlayerButton.setVisible(true);
+                rollButton.setVisible(false);
+                rollAgainButton.setVisible(false);
+                //THIS WILL BE A STRIKE ON THE BOARD. X   p1SmallBox1
+                p2BigBox1.setText("");
+                p2SmallBox1.setText("X");
+                p2SmallBox2.setText("");
+              }
+              
+              else
+              {
+                //ADD WHAT THEY ROLLED TO THE BOARD IN p1SmallBox1. VARIABLE = (selectedPins)
+                p2SmallBox1.setText(Integer.toString(selectedPins));
+               // rollButton.setVisible(false);
+                rollAgainButton.setVisible(true);
+                rollAgainButton.enable();
+              }
+              
+            }
+          });
+         
+         this.rollAgainButton.addActionListener(new ActionListener()
+         {
+          public void actionPerformed(ActionEvent click)
+          {
+            Random rand = new Random();
+            //Generates a number thats left. (if first bowl is 6, will generate between 0-4)
+            int secondSelectedPins;
+
+            if(selectedPins == 0)
+            	secondSelectedPins = rand.nextInt(10) + 1;
+            else
+            	secondSelectedPins = rand.nextInt(11 - selectedPins);
+            System.out.println(selectedPins);
+            	
+            
+            //----SPARE-----
+            if(secondSelectedPins + selectedPins == 10)
+            {
+              //PUT ON SCOREBOARD "/" IN SECOND BOX
+              p2SmallBox2.setText("/");
+              //p1BigBox.setVisible(false);
+              p2BigBox1.setText(Integer.toString(10));
+             // spareGif.setVisible(true);
+              rollAgainButton.disable();
+              rollAgainButton.setVisible(false);
+              nextPlayerButton.setVisible(true);
+            }
+            else  //----NOT SPARE----
+            {
+              p2SmallBox2.setText(Integer.toString(secondSelectedPins));
+              p2BigBox1.setText(Integer.toString(selectedPins + secondSelectedPins));
               rollAgainButton.disable();
               rollAgainButton.setVisible(false);
               nextPlayerButton.setVisible(true);
