@@ -16,7 +16,26 @@ public class BowlingGameView extends JPanel
 		private JLabel player2Username;
 		private JLabel player3Username;
 		private JLabel player4Username;
+		private JLabel playerUp;
 		private JLabel rollingUsername;
+		private JLabel p1BigBox1;
+		private JLabel p1SmallBox1;
+		private JLabel p1SmallBox2;
+		private JLabel p1BigBox2;
+		private JLabel p1SmallBox3;
+		private JLabel p1SmallBox4;
+		private JLabel p1BigBox3;
+		private JLabel p1SmallBox5;
+		private JLabel p1SmallBox6;
+		private JLabel p2BigBox1;
+		private JLabel p2SmallBox1;
+		private JLabel p2SmallBox2;
+		private JLabel p2BigBox2;
+		private JLabel p2SmallBox3;
+		private JLabel p2SmallBox4;
+		private JLabel p2BigBox3;
+		private JLabel p2SmallBox5;
+		private JLabel p2SmallBox6;
 
 		public BowlingGameView(AllViewsPanel allViewsPanel)
 			{
@@ -41,10 +60,50 @@ public class BowlingGameView extends JPanel
 				player4Username = new JLabel("Player4");
 				layout.putConstraint(SpringLayout.WEST, player4Username, 0, SpringLayout.WEST, player1Username);
 				layout.putConstraint(SpringLayout.SOUTH, player4Username, 450, SpringLayout.SOUTH, player1Username);
+				playerUp = new JLabel("Player Up:");
+				layout.putConstraint(SpringLayout.NORTH, playerUp, 50, SpringLayout.NORTH, this);
+				layout.putConstraint(SpringLayout.WEST, playerUp, 57, SpringLayout.WEST, this);
+				playerUp.setFont(new Font("Sitka Text", Font.ITALIC, 30));
 				rollingUsername = new JLabel("Username");
-				layout.putConstraint(SpringLayout.NORTH, rollingUsername, 75, SpringLayout.NORTH, this);
+				layout.putConstraint(SpringLayout.NORTH, rollingUsername, 100, SpringLayout.NORTH, this);
 				layout.putConstraint(SpringLayout.WEST, rollingUsername, 57, SpringLayout.WEST, this);
 				rollingUsername.setFont(new Font("Sitka Text", Font.BOLD, 45));
+				p1BigBox1 = new JLabel("28");
+				layout.putConstraint(SpringLayout.WEST, p1BigBox1, 675, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.SOUTH, p1BigBox1, 0, SpringLayout.SOUTH, player1Username);
+				p1BigBox1.setFont(new Font("Sitka Text", Font.BOLD, 45));
+				p1SmallBox1 = new JLabel("8");
+				layout.putConstraint(SpringLayout.WEST, p1SmallBox1, 910, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.SOUTH, p1SmallBox1, -40, SpringLayout.SOUTH, player1Username);
+				p1SmallBox1.setFont(new Font("Sitka Text", Font.BOLD, 45));
+				p1SmallBox2 = new JLabel("8");
+				layout.putConstraint(SpringLayout.WEST, p1SmallBox2, 910, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.SOUTH, p1SmallBox2, 40, SpringLayout.SOUTH, player1Username);
+				p1SmallBox2.setFont(new Font("Sitka Text", Font.BOLD, 45));
+				p1BigBox2 = new JLabel("28");
+				layout.putConstraint(SpringLayout.WEST, p1BigBox2, 1125, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.SOUTH, p1BigBox2, 0, SpringLayout.SOUTH, player1Username);
+				p1BigBox2.setFont(new Font("Sitka Text", Font.BOLD, 45));
+				p1SmallBox3 = new JLabel("8");
+				layout.putConstraint(SpringLayout.WEST, p1SmallBox3, 1375, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.SOUTH, p1SmallBox3, -40, SpringLayout.SOUTH, player1Username);
+				p1SmallBox3.setFont(new Font("Sitka Text", Font.BOLD, 45));
+				p1SmallBox4 = new JLabel("8");
+				layout.putConstraint(SpringLayout.WEST, p1SmallBox4, 1375, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.SOUTH, p1SmallBox4, 40, SpringLayout.SOUTH, player1Username);
+				p1SmallBox4.setFont(new Font("Sitka Text", Font.BOLD, 45));
+				p1BigBox3 = new JLabel("28");
+				layout.putConstraint(SpringLayout.WEST, p1BigBox3, 1125, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.SOUTH, p1BigBox3, 0, SpringLayout.SOUTH, player1Username);
+				p1BigBox3.setFont(new Font("Sitka Text", Font.BOLD, 45));
+				p1SmallBox3 = new JLabel("8");
+				layout.putConstraint(SpringLayout.WEST, p1SmallBox3, 1375, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.SOUTH, p1SmallBox3, -40, SpringLayout.SOUTH, player1Username);
+				p1SmallBox3.setFont(new Font("Sitka Text", Font.BOLD, 45));
+				p1SmallBox4 = new JLabel("8");
+				layout.putConstraint(SpringLayout.WEST, p1SmallBox4, 1375, SpringLayout.WEST, this);
+				layout.putConstraint(SpringLayout.SOUTH, p1SmallBox4, 40, SpringLayout.SOUTH, player1Username);
+				p1SmallBox4.setFont(new Font("Sitka Text", Font.BOLD, 45));
 					
 				buildPanel();
 				buildWindow();
@@ -69,7 +128,14 @@ public class BowlingGameView extends JPanel
 				this.add(this.player2Username);
 				this.add(this.player3Username);
 				this.add(this.player4Username);
+				this.add(this.playerUp);
 				this.add(this.rollingUsername);
+				this.add(this.p1BigBox1);
+				this.add(this.p1SmallBox1);
+				this.add(this.p1SmallBox2);
+				this.add(this.p1BigBox2);
+				this.add(this.p1SmallBox3);
+				this.add(this.p1SmallBox4);
 			}
 
 		private void buildWindow()
