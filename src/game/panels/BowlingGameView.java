@@ -3,12 +3,13 @@ package game.panels;
 import java.awt.Image;
 import game.controller.GameController;
 import game.panels.*;
+import game.view.AllViewsPanel;
 
 import javax.swing.*;
 
 public class BowlingGameView extends JPanel
 	{
-		private GameController baseController;
+		private AllViewsPanel allViewsPanel;
 		private SpringLayout layout;
 		private JLabel logoImage;
 		private JLabel backgroundImage;
@@ -20,9 +21,9 @@ public class BowlingGameView extends JPanel
 		private JLabel player3Username;
 		private JLabel player4Username;
 
-		public BowlingGameView(GameController baseController)
+		public BowlingGameView(AllViewsPanel allViewsPanel)
 			{
-				this.baseController= baseController;
+				this.allViewsPanel = allViewsPanel;
 				
 				layout = new SpringLayout();
 				
@@ -33,10 +34,10 @@ public class BowlingGameView extends JPanel
 				threePlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet3.jpg")));
 				fourPlayerBoard = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/ScoreSheet4.jpg")));
 				
-				player1Username = new JLabel();
-				player2Username = new JLabel();
-				player3Username = new JLabel();
-				player4Username = new JLabel();
+				player1Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername1());
+				player2Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername2());
+				player3Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername3());
+				player4Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername4());
 				
 				buildPanel();
 				buildWindow();

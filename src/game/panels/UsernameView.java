@@ -194,4 +194,24 @@ public class UsernameView extends JPanel
 		baselayout.putConstraint(SpringLayout.NORTH, startgameButton, 920, SpringLayout.NORTH, this);
 		baselayout.putConstraint(SpringLayout.WEST, startgameButton, 140, SpringLayout.WEST, username4);
 	}
+	
+	public String getUsername1()
+	{
+		return this.username1.getText();
+	}
+	
+	public String getUsername2()
+	{
+		return this.username2.getText();
+	}
+	
+	public String getUsername3()
+	{
+		return this.username3.getText();
+	}
+	
+	public String getUsername4()
+	{
+		return this.username4.getText();
+	}
 }
