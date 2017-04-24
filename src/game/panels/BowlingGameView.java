@@ -279,7 +279,7 @@ public class BowlingGameView extends JPanel
               //PUT ON SCOREBOARD "/" IN SECOND BOX
               p1SmallBox2.setText("/");
               //p1BigBox.setVisible(false);
-              p1SmallBox2.setText(Integer.toString(10));
+              p1BigBox1.setText(Integer.toString(10));
              // spareGif.setVisible(true);
               rollAgainButton.disable();
               rollAgainButton.setVisible(false);
