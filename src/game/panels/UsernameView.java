@@ -66,7 +66,6 @@ public class UsernameView extends JPanel
 		this.setLayout(this.baselayout);
 		this.setVisible(false);
 		this.setOpaque(false);
-		
 		add(this.username1);
 		add(this.username2);
 		add(this.username3);
@@ -192,22 +191,15 @@ public class UsernameView extends JPanel
 	}
 	
 	public String getUsername1()
-	{
-		return this.username1.getText();
-	}
+	{	return this.username1.getText();	}
 	
 	public String getUsername2()
-	{
-		return this.username2.getText();
-	}
+	{	return this.username2.getText();	}
 	
 	public String getUsername3()
-	{
-		return this.username3.getText();
-	}
+	{	return this.username3.getText();	}
 	
 	public String getUsername4()
-	{
-		return this.username4.getText();
-	}
+	{	return this.username4.getText();	}
+	
 }
