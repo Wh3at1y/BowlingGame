@@ -64,6 +64,7 @@ public class MusicController
 				URL resource = getClass().getResource("/resources/buttonClick.wav");
 				Media media = new Media(resource.toString());
 				buttonClickPlayer = new MediaPlayer(media);
+				buttonClickPlayer.setVolume(.25);
 				buttonClickPlayer.play();
 			}
 
@@ -72,6 +73,7 @@ public class MusicController
 				URL resource = getClass().getResource("/resources/click.wav");
 				Media media = new Media(resource.toString());
 				buttonHoverPlayer = new MediaPlayer(media);
+				buttonHoverPlayer.setVolume(.25);
 				buttonHoverPlayer.play();
 			}
 	}
