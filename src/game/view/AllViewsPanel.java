@@ -19,10 +19,12 @@ public class AllViewsPanel extends JPanel
 		private MainMenuView mainMenuView;
 		private NewGameView newGameView;
 		private OptionsView optionsMenuView;
+
 		
 		
 		private AmountOfPlayersView amountOfPlayersView;
 		private UsernameView usernamePanel;
+		private BowlingGameView bowlingGameView;
 		
 		
 		private JLabel logoImage;
@@ -40,6 +42,7 @@ public class AllViewsPanel extends JPanel
 				
 				amountOfPlayersView = new AmountOfPlayersView(this);
 				usernamePanel = new UsernameView(this);
+				bowlingGameView = new BowlingGameView(this);
 				
 				logoImage = new JLabel(new ImageIcon(AllViewsPanel.class.getResource("/resources/MiniBowlLogo.png")));
 				
@@ -109,6 +112,16 @@ public class AllViewsPanel extends JPanel
 		{
 			this.amountOfPlayersView.setVisible(true);
 			this.usernamePanel.setVisible(false);
+		}
+		public void openBowlingGameView()
+		{
+			this.bowlingGameView.setVisible(true);
+			this.usernamePanel.setVisible(false);
+		}
+		public void closeBowlingGameView()
+		{
+			this.usernamePanel.setVisible(true);
+			this.bowlingGameView.setVisible(false);
 		}
 		public void openOptionsView()
 		{

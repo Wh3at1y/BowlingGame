@@ -105,6 +105,10 @@ public class UsernameView extends JPanel
 					username3.setText("");
 					username4.setText("");
 				}
+				if(button == startgameButton)
+				{
+					allViewsPanel.openBowlingGameView();
+				}
 			}
 			public void mouseClicked(MouseEvent e){}
 			public void mouseEntered(MouseEvent e)
