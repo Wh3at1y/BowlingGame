@@ -394,7 +394,7 @@ public class BowlingGameView extends JPanel
             {
               scorePosition++;
               //strikeGif.setVisible(false);
-              nextPlayerButton.disable();
+              nextPlayerButton.setVisible(false);
               rollButton.setVisible(true);
             }
          });
