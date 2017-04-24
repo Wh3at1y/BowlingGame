@@ -32,8 +32,7 @@ public class BowlingGameView extends JPanel
 				player2Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername2());
 				player3Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername3());
 				player4Username = new JLabel(this.allViewsPanel.getUsernameView().getUsername4());
-				
-				
+					
 				buildPanel();
 				buildWindow();
 			}
