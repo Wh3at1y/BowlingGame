@@ -35,7 +35,6 @@ public class BowlingGameView extends JPanel
 					
 				buildPanel();
 				buildWindow();
-				
 			}
 
 		private void buildPanel()
