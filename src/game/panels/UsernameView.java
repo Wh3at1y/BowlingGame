@@ -98,9 +98,10 @@ public class UsernameView extends JPanel
 				}
 				if(button == startgameButton)
 				{
-					allViewsPanel.openBowlingGameView();
 					allViewsPanel.setBackgroundStatus(true);
 					allViewsPanel.getLogo().setVisible(false);
+					allViewsPanel.getBowlingView().updatePlayerUsernames();
+					allViewsPanel.openBowlingGameView();
 					
 				}
 			}

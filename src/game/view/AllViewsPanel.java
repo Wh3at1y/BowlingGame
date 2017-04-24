@@ -63,6 +63,7 @@ public class AllViewsPanel extends JPanel
 	{
 		this.setVisible(true);
 		this.setLayout(this.baseLayout);
+		this.add(this.bowlingGameView);
 		this.add(this.amountOfPlayersView);
 		this.add(this.usernamePanel);
 		this.add(this.mainMenuView);
@@ -176,9 +177,18 @@ public class AllViewsPanel extends JPanel
 	{
 		return this.usernamePanel;
 	}
+	
+	public BowlingGameView getBowlingView()
+	{
+		return this.bowlingGameView;
+	}
 
 	private void buildWindow()
 	{
+		baseLayout.putConstraint(SpringLayout.NORTH, bowlingGameView, 0, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, bowlingGameView, 0, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, bowlingGameView, 0, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, bowlingGameView, 0, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, backgroundImage, 0, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, backgroundImage, 0, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, backgroundImage, 0, SpringLayout.SOUTH, this);
