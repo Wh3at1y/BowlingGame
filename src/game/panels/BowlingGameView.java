@@ -133,10 +133,11 @@ public class BowlingGameView extends JPanel
 		p2SmallBox6 = new JLabel();
 		p2SmallBox6.setFont(new Font("Sitka Text", Font.BOLD, 45));
 
-		this.rollStatusLabel = new JLabel("STRIKE");
-		layout.putConstraint(SpringLayout.WEST, rollStatusLabel, 810, SpringLayout.WEST, this);
-		layout.putConstraint(SpringLayout.SOUTH, rollStatusLabel, -187, SpringLayout.NORTH, p1SmallBox1);
-		this.rollStatusLabel.setFont(new Font("Sitka Text", Font.BOLD, 90));
+		this.rollStatusLabel = new JLabel("", SwingConstants.CENTER);
+		layout.putConstraint(SpringLayout.WEST, rollStatusLabel, 697, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, rollStatusLabel, -150, SpringLayout.NORTH, p1SmallBox1);
+		layout.putConstraint(SpringLayout.EAST, rollStatusLabel, -621, SpringLayout.EAST, this);
+		this.rollStatusLabel.setFont(new Font("Sitka Text", Font.BOLD, 80));
 		
 		rollButton = new JButton("Roll Ball");
 		nextPlayerButton = new JButton("Next Player");
@@ -244,7 +245,7 @@ public class BowlingGameView extends JPanel
 					nextPlayerButton.setVisible(true);
 					rollButton.setVisible(false);
 					rollAgainButton.setVisible(false);
-					// THIS WILL BE A STRIKE ON THE BOARD. X p1SmallBox1
+					rollStatusLabel.setText("<html><div style='text-align: center;'>STRIKE</div></html>");
 
 					// p1BigBox1
 					if (scorePosition == 1)
@@ -307,6 +308,7 @@ public class BowlingGameView extends JPanel
 					else if (scorePosition == 6)
 						p2SmallBox5.setText(Integer.toString(selectedPins));
 
+					rollStatusLabel.setText("HIT " + selectedPins);
 					rollButton.setVisible(false);
 					rollAgainButton.setVisible(true);
 					rollAgainButton.enable();
@@ -359,6 +361,8 @@ public class BowlingGameView extends JPanel
 						p2SmallBox6.setText("/");
 						p2BigBox3.setText(Integer.toString(10));
 					}
+					
+					rollStatusLabel.setText("SPARE");
 					// spareGif.setVisible(true);
 
 					rollAgainButton.disable();
@@ -396,7 +400,9 @@ public class BowlingGameView extends JPanel
 						p2SmallBox6.setText(Integer.toString(secondSelectedPins));
 						p2BigBox3.setText(Integer.toString(selectedPins + secondSelectedPins));
 					}
-
+					int total = selectedPins + secondSelectedPins;
+					
+					rollStatusLabel.setText("Next Player!");
 					rollAgainButton.disable();
 					rollAgainButton.setVisible(false);
 					nextPlayerButton.setVisible(true);
@@ -423,6 +429,8 @@ public class BowlingGameView extends JPanel
 					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername1());
 				else if (scorePosition == 6)
 					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername2());
+				
+				rollStatusLabel.setText("");
 			}
 		});
 
