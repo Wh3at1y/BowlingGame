@@ -1,3 +1,7 @@
+/*
+ * This class contains the options menu. Where you can make setting changes to the program.
+ * You can pause/start background music and toggle on/off button clicks.
+ */
 package game.panels;
 
 import game.view.AllViewsPanel;

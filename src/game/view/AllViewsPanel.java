@@ -10,6 +10,7 @@ import javax.swing.*;
 
 public class AllViewsPanel extends JPanel
 {
+	//Declaration section for our variables in this class.
 	private SpringLayout baseLayout;
 	private MusicController soundPlayer;
 	private MainMenuView mainMenuView;
@@ -24,6 +25,7 @@ public class AllViewsPanel extends JPanel
 	private int frameWidth;
 	private int frameHeight;
 
+	//Adds all the different Panels into this one and builds the panel.
 	public AllViewsPanel()
 	{
 		this.baseLayout = new SpringLayout();
@@ -54,6 +56,7 @@ public class AllViewsPanel extends JPanel
 	public void playButtonClick()
 	{	soundPlayer.buttonClickStatus();		}
 
+	//Method to add components to the panel.
 	private void buildPanel()
 	{
 		this.setVisible(true);
@@ -175,7 +178,8 @@ public class AllViewsPanel extends JPanel
 	
 	public BowlingGameView getBowlingView()
 	{	return this.bowlingGameView;	}
-
+	
+	//This is constraints for components in our Panel.
 	private void buildWindow()
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, bowlingGameView, 0, SpringLayout.NORTH, this);

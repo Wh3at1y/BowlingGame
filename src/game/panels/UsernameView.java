@@ -1,6 +1,6 @@
 /*
  * UserName View class
- * This class provides the panel is which we collect players usernames.
+ * This class provides the panel in which we collect players user names.
  */
 package game.panels;
 
