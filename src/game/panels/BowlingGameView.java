@@ -437,18 +437,25 @@ public class BowlingGameView extends JPanel
 		returnToMenuButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
-			{
-
+			{	
+				allViewsPanel.openMainMenuView();
+				allViewsPanel.setBackgroundStatus(false);
+				allViewsPanel.getLogo().setVisible(true);
 			}
 		});
-
-		quitGameButton.addActionListener(new ActionListener()
+		
+		playAgainButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				System.exit(0);
+				allViewsPanel.closeBowlingGameView();
+				allViewsPanel.closeUserNameView();
+				allViewsPanel.setBackgroundStatus(false);
+				allViewsPanel.getLogo().setVisible(true);
+				allViewsPanel.openAmountOfPlayersView();		
 			}
 		});
+
 	}
 
 	private void buildWindow()
