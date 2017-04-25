@@ -287,6 +287,7 @@ public class BowlingGameView extends JPanel
 					if (scorePosition == 1)
 					{
 						p1BigBox1.setText("10");
+						p1BigBox1.setVisible(false);
 						p1SmallBox1.setText("X");
 						p1SmallBox2.setText("");
 					}
@@ -294,6 +295,7 @@ public class BowlingGameView extends JPanel
 					else if (scorePosition == 2)
 					{
 						p2BigBox1.setText("10");
+						p2BigBox1.setVisible(false);
 						p2SmallBox1.setText("X");
 						p2SmallBox2.setText("");
 					}
@@ -301,6 +303,7 @@ public class BowlingGameView extends JPanel
 					else if (scorePosition == 3)
 					{
 						p1BigBox2.setText("10");
+						p1BigBox2.setVisible(false);
 						p1SmallBox3.setText("X");
 						p1SmallBox4.setText("");
 					}
@@ -308,6 +311,7 @@ public class BowlingGameView extends JPanel
 					else if (scorePosition == 4)
 					{
 						p2BigBox2.setText("10");
+						p2BigBox2.setVisible(false);
 						p2SmallBox3.setText("X");
 						p2SmallBox4.setText("");
 					}
@@ -315,6 +319,7 @@ public class BowlingGameView extends JPanel
 					else if (scorePosition == 5)
 					{
 						p1BigBox3.setText("10");
+						p1BigBox3.setVisible(false);
 						p1SmallBox5.setText("X");
 						p1SmallBox6.setText("");
 					}
@@ -322,6 +327,7 @@ public class BowlingGameView extends JPanel
 					else if (scorePosition == 6)
 					{
 						p2BigBox3.setText("10");
+						p2BigBox3.setVisible(false);
 						p2SmallBox5.setText("X");
 						p2SmallBox6.setText("");
 						
@@ -377,26 +383,32 @@ public class BowlingGameView extends JPanel
 					if (scorePosition == 1)
 					{
 						p1SmallBox2.setText("/");
+						p1SmallBox2.setVisible(false);
 						p1BigBox1.setText(Integer.toString(10));
 					} else if (scorePosition == 2)
 					{
 						p2SmallBox2.setText("/");
+						p2SmallBox2.setVisible(false);
 						p2BigBox1.setText(Integer.toString(10));
 					} else if (scorePosition == 3)
 					{
 						p1SmallBox4.setText("/");
+						p1SmallBox4.setVisible(false);
 						p1BigBox2.setText(Integer.toString(10));
 					} else if (scorePosition == 4)
 					{
 						p2SmallBox4.setText("/");
+						p2SmallBox4.setVisible(false);
 						p2BigBox2.setText(Integer.toString(10));
 					} else if (scorePosition == 5)
 					{
 						p1SmallBox6.setText("/");
+						p1SmallBox6.setVisible(false);
 						p1BigBox3.setText(Integer.toString(10));
 					} else if (scorePosition == 6)
 					{
 						p2SmallBox6.setText("/");
+						p2SmallBox6.setVisible(false);
 						p2BigBox3.setText(Integer.toString(10));
 					}
 
@@ -531,38 +543,14 @@ public class BowlingGameView extends JPanel
 		int player1Score = 0;
 		int player2Score = 0;
 		
-		if(this.p1SmallBox1.getText().contains("X"))
-			this.p1StrikeCount = this.p1StrikeCount + 10;
-		if(this.p1SmallBox3.getText().contains("X"))
-			this.p1StrikeCount = this.p1StrikeCount + 10;
-		if(this.p1SmallBox5.getText().contains("X"))
-			this.p1StrikeCount = this.p1StrikeCount + 10;
-		if(this.p1SmallBox2.getText().contains("/"))
-			this.p1SpareCount = this.p1SpareCount + 10;
-		if(this.p1SmallBox4.getText().contains("/"))
-			this.p1SpareCount = this.p1SpareCount + 10;
-		if(this.p1SmallBox6.getText().contains("/"))
-			this.p1SpareCount = this.p1SpareCount + 10;
-		
-		
-			player1Score =
-											Integer.parseInt(this.p1BigBox1.getText()) +
-											Integer.parseInt(this.p1BigBox2.getText()) +
-											Integer.parseInt(this.p1BigBox3.getText());
+		player1Score = Integer.parseInt(this.p1BigBox1.getText()) +
+						Integer.parseInt(this.p1BigBox2.getText()) +
+						Integer.parseInt(this.p1BigBox3.getText());
 
 		
-		player2Score = 	
-											Integer.parseInt(this.p2BigBox1.getText()) +
-											Integer.parseInt(this.p2BigBox2.getText()) +
-											Integer.parseInt(this.p2BigBox3.getText());
-
-		
-		System.out.println("p1 score " + player1Score);
-		System.out.println("p2 score " + player2Score);
-		System.out.println("p1 strike " + p1StrikeCount);
-		System.out.println("p2 strike " + p2StrikeCount);
-		System.out.println("p1 spare " + p1SpareCount);
-		System.out.println("p2 spare " + p2SpareCount);
+		player2Score = Integer.parseInt(this.p2BigBox1.getText()) +
+						Integer.parseInt(this.p2BigBox2.getText()) +
+						Integer.parseInt(this.p2BigBox3.getText());
 		
 		if(player1Score > player2Score)
 			rollStatusLabel.setText(allViewsPanel.getUsernameView().getUsername1().getText() + " WINS!");
