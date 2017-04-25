@@ -138,7 +138,7 @@ public class BowlingGameView extends JPanel
 		layout.putConstraint(SpringLayout.SOUTH, rollStatusLabel, -150, SpringLayout.NORTH, p1SmallBox1);
 		layout.putConstraint(SpringLayout.EAST, rollStatusLabel, -621, SpringLayout.EAST, this);
 		this.rollStatusLabel.setFont(new Font("Sitka Text", Font.BOLD, 80));
-		
+
 		rollButton = new JButton("Roll Ball");
 		layout.putConstraint(SpringLayout.NORTH, rollButton, -20, SpringLayout.NORTH, playerUp);
 		layout.putConstraint(SpringLayout.WEST, rollButton, 400, SpringLayout.WEST, this);
@@ -148,9 +148,9 @@ public class BowlingGameView extends JPanel
 		rollButton.setFont(new Font("Sitka Text", Font.BOLD, 12));
 		nextPlayerButton = new JButton("Next Player");
 		layout.putConstraint(SpringLayout.NORTH, nextPlayerButton, -20, SpringLayout.NORTH, playerUp);
-		layout.putConstraint(SpringLayout.WEST, nextPlayerButton, -600, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.WEST, nextPlayerButton, -550, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.SOUTH, nextPlayerButton, 0, SpringLayout.SOUTH, rollButton);
-		layout.putConstraint(SpringLayout.EAST, nextPlayerButton, -400, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.EAST, nextPlayerButton, -350, SpringLayout.EAST, this);
 		nextPlayerButton.setPreferredSize(new Dimension(160, 50));
 		nextPlayerButton.setFont(new Font("Sitka Text", Font.BOLD, 12));
 		rollAgainButton = new JButton("Roll Again");
@@ -179,9 +179,8 @@ public class BowlingGameView extends JPanel
 		returnToMenuButton.setPreferredSize(new Dimension(160, 50));
 		returnToMenuButton.setFont(new Font("Sitka Text", Font.BOLD, 12));
 
-		this.rollButton.disable();
-		this.nextPlayerButton.setVisible(false);
 		this.rollAgainButton.setVisible(false);
+		this.nextPlayerButton.setEnabled(false);
 		this.playAgainButton.setVisible(true);
 		this.quitGameButton.setVisible(true);
 		this.returnToMenuButton.setVisible(true);
@@ -207,7 +206,7 @@ public class BowlingGameView extends JPanel
 		rollStatusGif.setIcon(imageIcon);
 		rollStatusGif.setVisible(true);
 	}
-	
+
 	public void updatePlayerUsernames()
 	{
 		player1Username.setText(this.allViewsPanel.getUsernameView().getUsername1().getText());
@@ -254,7 +253,7 @@ public class BowlingGameView extends JPanel
 		this.add(this.p2BigBox3);
 		this.add(this.p2SmallBox5);
 		this.add(this.p2SmallBox6);
-		
+
 		this.add(this.rollStatusLabel);
 		this.add(this.rollStatusGif);
 	}
@@ -275,10 +274,9 @@ public class BowlingGameView extends JPanel
 				if (selectedPins == 10)
 				{
 					changeGifSize("/resources/STRIKE.gif");
-					
-					nextPlayerButton.setVisible(true);
-					rollButton.setVisible(false);
-					rollAgainButton.setVisible(false);
+
+					nextPlayerButton.setEnabled(true);
+					rollButton.setEnabled(false);
 					rollStatusLabel.setText("<html><div style='text-align: center;'>STRIKE</div></html>");
 
 					// p1BigBox1
@@ -327,8 +325,6 @@ public class BowlingGameView extends JPanel
 
 				else
 				{
-					// ADD WHAT THEY ROLLED TO THE BOARD IN p1SmallBox1.
-					// VARIABLE = (selectedPins)
 					if (scorePosition == 1)
 						p1SmallBox1.setText(Integer.toString(selectedPins));
 					else if (scorePosition == 2)
@@ -343,11 +339,11 @@ public class BowlingGameView extends JPanel
 						p2SmallBox5.setText(Integer.toString(selectedPins));
 
 					rollStatusLabel.setText("HIT " + selectedPins);
+					rollButton.setEnabled(false);
 					rollButton.setVisible(false);
 					rollAgainButton.setVisible(true);
-					rollAgainButton.enable();
+					rollAgainButton.setEnabled(true);
 				}
-
 			}
 		});
 
@@ -370,7 +366,7 @@ public class BowlingGameView extends JPanel
 				if (secondSelectedPins + selectedPins == 10)
 				{
 					changeGifSize("/resources/SPARE.gif");
-					
+
 					if (scorePosition == 1)
 					{
 						p1SmallBox2.setText("/");
@@ -396,13 +392,13 @@ public class BowlingGameView extends JPanel
 						p2SmallBox6.setText("/");
 						p2BigBox3.setText(Integer.toString(10));
 					}
-					
-					rollStatusLabel.setText("SPARE");
-					// spareGif.setVisible(true);
 
-					rollAgainButton.disable();
-					rollAgainButton.setVisible(false);
-					nextPlayerButton.setVisible(true);
+					rollStatusLabel.setText("SPARE");
+
+					rollStatusLabel.setText("Next Player!");
+					rollAgainButton.setEnabled(false);
+					nextPlayerButton.setEnabled(true);
+
 				} else // ----NOT SPARE----
 				{
 					if (scorePosition == 1)
@@ -435,12 +431,9 @@ public class BowlingGameView extends JPanel
 						p2SmallBox6.setText(Integer.toString(secondSelectedPins));
 						p2BigBox3.setText(Integer.toString(selectedPins + secondSelectedPins));
 					}
-					int total = selectedPins + secondSelectedPins;
-					
 					rollStatusLabel.setText("Next Player!");
-					rollAgainButton.disable();
-					rollAgainButton.setVisible(false);
-					nextPlayerButton.setVisible(true);
+					rollAgainButton.setEnabled(false);
+					nextPlayerButton.setEnabled(true);
 				}
 			}
 		});
@@ -451,7 +444,9 @@ public class BowlingGameView extends JPanel
 			{
 				scorePosition++;
 				rollStatusGif.setVisible(false);
-				nextPlayerButton.setVisible(false);
+				nextPlayerButton.setEnabled(false);
+				rollAgainButton.setVisible(false);
+				rollButton.setEnabled(true);
 				rollButton.setVisible(true);
 
 				if (scorePosition == 2)
@@ -464,7 +459,7 @@ public class BowlingGameView extends JPanel
 					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername1().getText());
 				else if (scorePosition == 6)
 					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername2().getText());
-				
+
 				rollStatusLabel.setText("");
 			}
 		});
@@ -472,7 +467,7 @@ public class BowlingGameView extends JPanel
 		returnToMenuButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
-			{	
+			{
 				allViewsPanel.openMainMenuView();
 				allViewsPanel.setBackgroundStatus(false);
 				allViewsPanel.getLogo().setVisible(true);
@@ -481,9 +476,10 @@ public class BowlingGameView extends JPanel
 				allViewsPanel.getUsernameView().getUsername3().setText("");
 				allViewsPanel.getUsernameView().getUsername4().setText("");
 				clearScoreBoard();
+
 			}
 		});
-		
+
 		playAgainButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
@@ -492,7 +488,7 @@ public class BowlingGameView extends JPanel
 				allViewsPanel.closeUserNameView();
 				allViewsPanel.setBackgroundStatus(false);
 				allViewsPanel.getLogo().setVisible(true);
-				allViewsPanel.openAmountOfPlayersView();	
+				allViewsPanel.openAmountOfPlayersView();
 				allViewsPanel.getUsernameView().getUsername1().setText("");
 				allViewsPanel.getUsernameView().getUsername2().setText("");
 				allViewsPanel.getUsernameView().getUsername3().setText("");
@@ -500,19 +496,20 @@ public class BowlingGameView extends JPanel
 				clearScoreBoard();
 			}
 		});
-		
+
 		quitGameButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				System.exit(0);	
+				System.exit(0);
 			}
 		});
 
 	}
-	
+
 	private void clearScoreBoard()
 	{
+		scorePosition = 1;
 		this.p1BigBox1.setText("");
 		this.p1SmallBox1.setText("");
 		this.p1SmallBox2.setText("");
@@ -534,7 +531,6 @@ public class BowlingGameView extends JPanel
 		this.rollStatusLabel.setText("");
 		this.rollStatusGif.setVisible(false);
 	}
-
 
 	private void buildWindow()
 	{
