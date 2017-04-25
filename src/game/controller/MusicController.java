@@ -1,3 +1,9 @@
+/**
+*
+*	This is the Class that has our sounds and music for the GUI
+*	and also activates the music and sounds.
+*
+**/
 package game.controller;
 
 import java.net.URL;
@@ -12,16 +18,16 @@ public class MusicController
 	private boolean isButtonClicksOn;
 	private boolean isMenuSongPlaying;
 
-	public MusicController()
+	public MusicController() // Activates all sounds for GUI
 	{
 		this.isButtonClicksOn = true;
 		menuSong();
 	}
 
-	public void setButtonClicks(boolean buttonStatus)
+	public void setButtonClicks(boolean buttonStatus) // Checks if the sounds are active
 	{	isButtonClicksOn = buttonStatus;	}
 		
-	public void menuMusicStatus()
+	public void menuMusicStatus() // Checks if the music is paused or playing
 	{
 		if (this.isMenuSongPlaying == true)
 		{
@@ -35,19 +41,19 @@ public class MusicController
 		}
 	}
 
-	public void buttonClickStatus()
+	public void buttonClickStatus() // Activates the sound for clicking the button
 	{
 		if(this.isButtonClicksOn == true)
 			buttonClick();
 		}
 		
-	public void buttonHovorStatus()
+	public void buttonHovorStatus() // Activates the sound for hovering over text
 	{
 		if(this.isButtonClicksOn == true)
 			buttonHover();
 	}
 
-	public void menuSong()
+	public void menuSong() // The music for the game
 	{
 		URL resource = getClass().getResource("/resources/song.wav");
 		Media media = new Media(resource.toString());
@@ -56,7 +62,7 @@ public class MusicController
 		mainMenuPlayer.play();
 	}
 
-	public void buttonClick()
+	public void buttonClick() // The sound when a button is clicked
 	{
 		URL resource = getClass().getResource("/resources/buttonClick.wav");
 		Media media = new Media(resource.toString());
@@ -65,7 +71,7 @@ public class MusicController
 		buttonClickPlayer.play();
 	}
 
-	public void buttonHover()
+	public void buttonHover() // The sound when mouse hovers over text
 	{
 		URL resource = getClass().getResource("/resources/click.wav");
 		Media media = new Media(resource.toString());

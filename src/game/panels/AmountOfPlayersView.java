@@ -1,3 +1,11 @@
+/**
+ * 
+ *  This Class contains all the information needed when a the 
+ *  amount of players are selected from the New Game screen. Based
+ *  on what is chosen here will affect how many Usernames can be 
+ *  entered into the game to a maximum of 4 players.
+ * 
+ **/
 package game.panels;
 
 import java.awt.*;
@@ -15,7 +23,7 @@ public class AmountOfPlayersView extends JPanel
 	private JLabel backLabel;	
 	private Font labelFont;
 
-	public AmountOfPlayersView(AllViewsPanel allViewsPanel)
+	public AmountOfPlayersView(AllViewsPanel allViewsPanel) // The Format of the New Game menu
 	{
 		this.allViewsPanel = allViewsPanel;
 		
@@ -36,7 +44,7 @@ public class AmountOfPlayersView extends JPanel
 		buildListeners(this.backLabel);	
 	}
 	
-	private void buildPanel()
+	private void buildPanel() // Adding each Button into the GUI
 	{
 		this.setVisible(false);
 		this.setOpaque(false);
@@ -47,7 +55,7 @@ public class AmountOfPlayersView extends JPanel
 		this.add(this.backLabel);
 	}
 
-	private void buildListeners(JLabel button)
+	private void buildListeners(JLabel button) // The actions that are performed when the amount of players are chosen
 	{
 		button.setFont(this.labelFont);
 		button.setForeground(Color.BLACK);
@@ -86,7 +94,7 @@ public class AmountOfPlayersView extends JPanel
 		});
 	}
 		
-	private void buildPlacements()
+	private void buildPlacements() // All of the placements of the text fields for the New Game menu
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, twoplayerButton, 620, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, twoplayerButton, 892, SpringLayout.WEST, this);

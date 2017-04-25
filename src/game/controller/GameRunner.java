@@ -1,3 +1,8 @@
+/**
+ * 
+ * This Class contains the main method and launches the actual game.
+ * 
+ **/
 package game.controller;
 
 import game.view.GameFrame;

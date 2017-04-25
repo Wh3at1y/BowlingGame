@@ -1,3 +1,9 @@
+/**
+ * 
+ * 	This Class is the Main Menu of the Game. It contains New Game, Options,
+ *  and Exit Game. This Class is the first thing you see when you start the Game.
+ * 
+ **/
 package game.panels;
 
 import game.view.AllViewsPanel;
@@ -16,7 +22,7 @@ public class MainMenuView extends JPanel
 	private JLabel exitLabel;
 	private Font labelFont;
 
-	public MainMenuView(AllViewsPanel allViewsPanel)
+	public MainMenuView(AllViewsPanel allViewsPanel) // The Formatting of the Main Menu
 	{
 		this.allViewsPanel = allViewsPanel;
 				
@@ -35,7 +41,7 @@ public class MainMenuView extends JPanel
 		buildListeners(this.exitLabel);
 	}
 
-	private void buildPanel()
+	private void buildPanel() // Adding each Button into the GUI
 	{
 		this.setOpaque(false);
 		this.setLayout(baseLayout);
@@ -44,7 +50,7 @@ public class MainMenuView extends JPanel
 		this.add(this.exitLabel);
 	}
 
-	private void buildListeners(JLabel button)
+	private void buildListeners(JLabel button) // The actions that are performed when a selection is made on the main Menu
 	{
 		button.setFont(this.labelFont);	button.setForeground(Color.BLACK);
 				
@@ -75,7 +81,7 @@ public class MainMenuView extends JPanel
 		});
 	}
 		
-	private void buildPlacements()
+	private void buildPlacements() // The layout of the Main Menu
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, startLabel, 620, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, startLabel, -20, SpringLayout.WEST, optionsLabel);
@@ -85,13 +91,13 @@ public class MainMenuView extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, exitLabel, -17, SpringLayout.WEST, optionsLabel);
 	}
 
-	public JLabel getStartLabel()
+	public JLabel getStartLabel() // Getter for the New Game Button
 	{	return startLabel;		}
 
-	public JLabel getOptionsLabel()
+	public JLabel getOptionsLabel() // Getter for the Options Button
 	{	return optionsLabel;		}
 
-	public JLabel getExitLabel()
+	public JLabel getExitLabel() // Getter for the Exit Button
 	{	return exitLabel;	}
 		
 }

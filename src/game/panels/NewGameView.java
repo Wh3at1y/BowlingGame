@@ -1,3 +1,10 @@
+/**
+ * 
+ *  This Class contains all the information for when a New Game is
+ *  selected. It will take you to a new Panel where you can choose
+ *  how many players are going to play the game.
+ * 
+ **/
 package game.panels;
 
 import game.view.AllViewsPanel;
@@ -11,7 +18,7 @@ public class NewGameView extends JPanel
 	private JLabel fourplayersLabel;
 	private JLabel backLabel;
 
-	public NewGameView(AllViewsPanel allViewsPanel)
+	public NewGameView(AllViewsPanel allViewsPanel) // Formatting of the New Game
 	{
 		baseLayout = new SpringLayout();
 				
@@ -24,7 +31,7 @@ public class NewGameView extends JPanel
 		buildWindow();
 	}
 
-	private void buildPanel()
+	private void buildPanel() // Adding each Button into the GUI
 	{
 		this.setVisible(false);
 		this.setOpaque(false);
@@ -35,7 +42,7 @@ public class NewGameView extends JPanel
 		this.add(this.fourplayersLabel);
 	}
 
-	private void buildWindow()
+	private void buildWindow() // Layout of the New Game screen
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, twoplayersLabel, 620, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, twoplayersLabel, 885, SpringLayout.WEST, this);
@@ -46,7 +53,7 @@ public class NewGameView extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, backLabel, -80, SpringLayout.WEST, fourplayersLabel);
 	}
 
-	public JLabel getBackLabel()
+	public JLabel getBackLabel() // Getter for the Back Label
 	{	return backLabel;	}
 
 }
