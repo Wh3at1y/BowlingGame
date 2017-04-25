@@ -53,7 +53,11 @@ public class BowlingGameView extends JPanel
 	private int selectedPins;
 	private int secondSelectedPins;
 	private int scorePosition;
-
+	private int p1StrikeCount;
+	private int p2StrikeCount;
+	private int p1SpareCount;
+	private int p2SpareCount;
+	
 	public BowlingGameView(AllViewsPanel allViewsPanel)
 	{
 		this.allViewsPanel = allViewsPanel;
@@ -320,6 +324,9 @@ public class BowlingGameView extends JPanel
 						p2BigBox3.setText("");
 						p2SmallBox5.setText("X");
 						p2SmallBox6.setText("");
+						
+						nextPlayerButton.setEnabled(false);
+						calculateWinner();
 					}
 				}
 
@@ -399,7 +406,10 @@ public class BowlingGameView extends JPanel
 					nextPlayerButton.setEnabled(true);
 					
 					if(scorePosition == 6)
+					{
 						nextPlayerButton.setEnabled(false);
+						calculateWinner();
+					}
 
 				} else // ----NOT SPARE----
 				{
@@ -438,7 +448,10 @@ public class BowlingGameView extends JPanel
 					nextPlayerButton.setEnabled(true);
 					
 					if(scorePosition == 6)
+					{
 						nextPlayerButton.setEnabled(false);
+						calculateWinner();
+					}
 				}
 			}
 		});
@@ -467,10 +480,6 @@ public class BowlingGameView extends JPanel
 
 				rollStatusLabel.setText("");
 				
-				if(scorePosition == 7)
-				{
-					nextPlayerButton.setEnabled(false);
-				}
 			}
 		});
 
@@ -515,6 +524,53 @@ public class BowlingGameView extends JPanel
 			}
 		});
 
+	}
+	
+	private void calculateWinner()
+	{
+		int player1Score = 0;
+		int player2Score = 0;
+		
+		if(this.p1SmallBox1.getText().contains("X"))
+			this.p1StrikeCount = this.p1StrikeCount + 2;
+		if(this.p1SmallBox3.getText().contains("X"))
+			this.p1StrikeCount = this.p1StrikeCount + 2;
+		if(this.p1SmallBox5.getText().contains("X"))
+			this.p1StrikeCount = this.p1StrikeCount + 2;
+		if(this.p1SmallBox2.getText().contains("/"))
+			this.p1SpareCount++;
+		if(this.p1SmallBox4.getText().contains("/"))
+			this.p1SpareCount++;
+		if(this.p1SmallBox6.getText().contains("/"))
+			this.p1SpareCount++;
+		
+		
+			player1Score = 	p1StrikeCount +
+											Integer.parseInt(this.p1BigBox1.getText()) +
+											Integer.parseInt(this.p1BigBox2.getText()) +
+											Integer.parseInt(this.p1BigBox3.getText());
+
+		
+		player2Score = 	p2StrikeCount +
+											Integer.parseInt(this.p2BigBox1.getText()) +
+											Integer.parseInt(this.p2BigBox2.getText()) +
+											Integer.parseInt(this.p2BigBox3.getText());
+
+		
+		System.out.println("p1 score " + player1Score);
+		System.out.println("p2 score " + player2Score);
+		System.out.println("p1 strike " + p1StrikeCount);
+		System.out.println("p2 strike " + p2StrikeCount);
+		System.out.println("p1 spare " + p1SpareCount);
+		System.out.println("p2 spare " + p2SpareCount);
+		
+		if(player1Score > player2Score)
+			rollStatusLabel.setText(allViewsPanel.getUsernameView().getUsername1().getText() + " WINS!");
+		else if(player1Score < player2Score)
+			rollStatusLabel.setText(allViewsPanel.getUsernameView().getUsername2().getText() + " WINS!");
+		else
+			rollStatusLabel.setText("TIE?");
+											
 	}
 	
 	private void clearScoreBoard()
