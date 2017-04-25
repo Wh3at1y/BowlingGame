@@ -39,9 +39,8 @@ public class BowlingGameView extends JPanel
 	private JLabel p2SmallBox5;
 	private JLabel p2SmallBox6;
 	private JLabel rollStatusLabel;
-	// private JLabel XStrikeScore;
-	// private JLabel spareGif;
-	// private JLabel strikeGif;
+
+	private JLabel rollStatusGif;
 
 	private JButton rollButton;
 	private JButton rollAgainButton;
@@ -159,15 +158,10 @@ public class BowlingGameView extends JPanel
 		this.quitGameButton.setVisible(true);
 		this.returnToMenuButton.setVisible(true);
 
-		// XStrikeScore = new JLabel(new
-		// ImageIcon(BowlingGameView.class.getResource("/resources/XRedStrike.png")));
-		// spareGif = new JLabel(new
-		// ImageIcon(BowlingGameView.class.getResource("/resources/SpareGif.png")));
-		// strikeGif = new JLabel(new
-		// ImageIcon(BowlingGameView.class.getResource("/resources/StrikeGif.png")));
-		// this.XStrikeScore.setVisible(false);
-		// this.spareGif.setVisible(false);
-		// this.strikeGif.setVisible(false);
+		this.rollStatusGif = new JLabel();
+		layout.putConstraint(SpringLayout.NORTH, rollStatusGif, 10, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.EAST, rollStatusGif, -156, SpringLayout.WEST, playAgainButton);
+		this.rollStatusGif.setVisible(false);
 
 		this.scorePosition = 1;
 
@@ -176,6 +170,16 @@ public class BowlingGameView extends JPanel
 		this.buildListeners();
 	}
 
+	private void changeGifSize(String loc)
+	{
+		ImageIcon imageIcon = new ImageIcon(AllViewsPanel.class.getResource(loc));
+		Image image = imageIcon.getImage(); // transform it
+		Image newimg = image.getScaledInstance(500, 400, java.awt.Image.SCALE_FAST);
+		imageIcon = new ImageIcon(newimg); // transform it back
+		rollStatusGif.setIcon(imageIcon);
+		rollStatusGif.setVisible(true);
+	}
+	
 	public void updatePlayerUsernames()
 	{
 		player1Username.setText(this.allViewsPanel.getUsernameView().getUsername1());
@@ -224,6 +228,7 @@ public class BowlingGameView extends JPanel
 		this.add(this.p2SmallBox6);
 		
 		this.add(this.rollStatusLabel);
+		this.add(this.rollStatusGif);
 	}
 
 	private void buildListeners()
@@ -241,7 +246,8 @@ public class BowlingGameView extends JPanel
 				// ----STRIKE----
 				if (selectedPins == 10)
 				{
-					// strikeGif.setVisible(true);
+					changeGifSize("/resources/STRIKE.gif");
+					
 					nextPlayerButton.setVisible(true);
 					rollButton.setVisible(false);
 					rollAgainButton.setVisible(false);
@@ -335,7 +341,8 @@ public class BowlingGameView extends JPanel
 				// ----SPARE-----
 				if (secondSelectedPins + selectedPins == 10)
 				{
-					// PUT ON SCOREBOARD "/" IN SECOND BOX
+					changeGifSize("/resources/SPARE.gif");
+					
 					if (scorePosition == 1)
 					{
 						p1SmallBox2.setText("/");
@@ -415,7 +422,7 @@ public class BowlingGameView extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				scorePosition++;
-				// strikeGif.setVisible(false);
+				rollStatusGif.setVisible(false);
 				nextPlayerButton.setVisible(false);
 				rollButton.setVisible(true);
 
