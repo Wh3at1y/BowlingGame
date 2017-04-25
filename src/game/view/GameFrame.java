@@ -1,3 +1,6 @@
+/*
+ * Game Frame is the class that builds the frame of the GUI
+ */
 package game.view;
 
 import javax.swing.JFrame;

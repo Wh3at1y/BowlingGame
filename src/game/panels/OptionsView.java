@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public class OptionsView extends JPanel
 {
+	//Declaration section for our variables in this class.
 	private AllViewsPanel allViewsPanel;
 	private SpringLayout baseLayout;
 	private JLabel toggleMusicLabel;
@@ -15,7 +16,8 @@ public class OptionsView extends JPanel
 	private Font labelFont;
 	private boolean toggleClicks;
 	private boolean toggleMusic;
-
+	
+	//Constructor initializes new components going into the panel.
 	public OptionsView(AllViewsPanel allViewsPanel)
 	{
 		this.allViewsPanel = allViewsPanel;
@@ -37,7 +39,8 @@ public class OptionsView extends JPanel
 		buildListeners(this.toggleClicksLabel);
 		buildListeners(this.backLabel);
 	}
-
+	
+	//Method to add components to the panel.
 	private void buildPanel()
 	{
 		this.setVisible(false);
@@ -57,11 +60,12 @@ public class OptionsView extends JPanel
 			public void mousePressed(MouseEvent arg0)
 			{
 				allViewsPanel.playButtonClick();	
-						
+				//If you hit the back button it changes the panel to the previous panel.		
 				if(button == backLabel)
 				{
 					allViewsPanel.closeOptionsView();
 				}
+				//Statement to check whether toggle music to show on or off and pauses/plays when on/off.
 				if(button == toggleMusicLabel)
 				{
 					allViewsPanel.setMusicToggle();
@@ -76,7 +80,8 @@ public class OptionsView extends JPanel
 						toggleMusic = true;
 					}
 							
-				}
+				}	
+				//Statement to check whether toggle clicks should be on or off.
 				if(button == toggleClicksLabel)
 				{	
 					if(toggleClicks == true)
@@ -94,18 +99,20 @@ public class OptionsView extends JPanel
 				}
 			}
 			public void mouseClicked(MouseEvent e){}
+			//This event changes the button color when hovered over it to white.
 			public void mouseEntered(MouseEvent e)
 			{	
 				button.setForeground(Color.WHITE);
 				allViewsPanel.playButtonHovor();	
 			}
-	
+			//This event changes the button color to black again when the mouse exits the button area.
 			public void mouseExited(MouseEvent e)
 				{	button.setForeground(Color.BLACK);	}
 			public void mouseReleased(MouseEvent e){}
 		});
 	}
-		
+	
+	//This is constraints for components in our Panel.
 	private void buildWindow()
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, toggleMusicLabel, 600, SpringLayout.NORTH, this);

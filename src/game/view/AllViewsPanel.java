@@ -1,3 +1,6 @@
+/*
+ * AllViewsPanel is basically the panel that contains all the other panels.
+ */
 package game.view;
 
 import java.awt.Image;

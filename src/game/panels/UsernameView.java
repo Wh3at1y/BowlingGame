@@ -1,3 +1,7 @@
+/*
+ * UserName View class
+ * This class provides the panel is which we collect players usernames.
+ */
 package game.panels;
 
 import java.awt.*;
@@ -7,6 +11,7 @@ import game.view.AllViewsPanel;
 
 public class UsernameView extends JPanel
 {
+	//Declaration section for our variables in this class.
 	private AllViewsPanel allViewsPanel;
 	private SpringLayout baselayout;
 	private JTextField username1;
@@ -22,6 +27,7 @@ public class UsernameView extends JPanel
 	private Font labelFont;
 	private int amountofPlayers;
 	
+	//Constructor initializes new components going into the panel.
 	public UsernameView(AllViewsPanel allViewsPanel)
 	{	
 		this.allViewsPanel = allViewsPanel;
@@ -60,6 +66,7 @@ public class UsernameView extends JPanel
 		buildListeners(this.startgameButton);		
 	}
 	
+	//Method to add components to the panel.
 	private void buildPanel()
 	{
 		this.setLayout(this.baselayout);
@@ -76,7 +83,7 @@ public class UsernameView extends JPanel
 		this.add(this.backLabel);
 		this.add(this.startgameButton);
 	}
-	
+	//Sets action listeners on the buttons on this panel.
 	private void buildListeners(JLabel button)
 	{
 		button.setFont(this.labelFont);	button.setForeground(Color.BLACK);
@@ -86,7 +93,8 @@ public class UsernameView extends JPanel
 			public void mousePressed(MouseEvent arg0)
 			{
 				allViewsPanel.playButtonClick();	
-					
+				
+				//This statement is for changing panels and clearing fields.
 				if(button == backLabel)
 				{
 					allViewsPanel.closeUserNameView();
@@ -95,6 +103,7 @@ public class UsernameView extends JPanel
 					username3.setText("");
 					username4.setText("");
 				}
+				//This statement is for changing to a new panel and starting the actual game.
 				if(button == startgameButton)
 				{
 					allViewsPanel.setBackgroundStatus(true);
@@ -104,25 +113,26 @@ public class UsernameView extends JPanel
 				}
 			}
 			public void mouseClicked(MouseEvent e){}
+			//This event changes the button color when hovered over it to white.
 			public void mouseEntered(MouseEvent e)
 			{	
 				button.setForeground(Color.WHITE);
 				allViewsPanel.playButtonHovor();	
 			}
-			
+			//This event changes the button color to black again when the mouse exits the button area.
 			public void mouseExited(MouseEvent e)
 			{	button.setForeground(Color.BLACK);	}
 			
 			public void mouseReleased(MouseEvent e){}
 		});
 	}
-
+	//Method calls the method below to set text fields based on how many players are selected to play.
 	public void setAmountOfPlayers(int amountofPlayers)
 	{
 		this.amountofPlayers = amountofPlayers;
 		displayTextFields();
 	}
-	
+	//This method determines how many player text fields need to be displayed for the amount of players.
 	private void displayTextFields()
 	{
 		if(amountofPlayers == 2)
@@ -161,7 +171,7 @@ public class UsernameView extends JPanel
 			player4.setVisible(true);
 		}
 	}
-	
+	//This is constraints for components in our Panel.
 	public void buildPlacements()
 	{
 		baselayout.putConstraint(SpringLayout.NORTH, username1, 615, SpringLayout.NORTH, this);
@@ -190,7 +200,7 @@ public class UsernameView extends JPanel
 		baselayout.putConstraint(SpringLayout.NORTH, startgameButton, 920, SpringLayout.NORTH, this);
 		baselayout.putConstraint(SpringLayout.WEST, startgameButton, 140, SpringLayout.WEST, username4);
 	}
-	
+	//These getters get the user names users enter for players 1-4.
 	public JTextField getUsername1()
 	{	return this.username1;	}
 	
