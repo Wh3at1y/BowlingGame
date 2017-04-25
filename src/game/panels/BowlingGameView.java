@@ -401,31 +401,37 @@ public class BowlingGameView extends JPanel
 					{
 						p1SmallBox2.setText(Integer.toString(secondSelectedPins));
 						p1BigBox1.setText(Integer.toString(selectedPins + secondSelectedPins));
+						p1BigBox1.setVisible(true);
 					}
 					if (scorePosition == 2)
 					{
 						p2SmallBox2.setText(Integer.toString(secondSelectedPins));
 						p2BigBox1.setText(Integer.toString(selectedPins + secondSelectedPins));
+						p2BigBox1.setVisible(true);
 					}
 					if (scorePosition == 3)
 					{
 						p1SmallBox4.setText(Integer.toString(secondSelectedPins));
 						p1BigBox2.setText(Integer.toString(selectedPins + secondSelectedPins));
+						p1BigBox2.setVisible(true);
 					}
 					if (scorePosition == 4)
 					{
 						p2SmallBox4.setText(Integer.toString(secondSelectedPins));
 						p2BigBox2.setText(Integer.toString(selectedPins + secondSelectedPins));
+						p2BigBox2.setVisible(true);
 					}
 					if (scorePosition == 5)
 					{
 						p1SmallBox6.setText(Integer.toString(secondSelectedPins));
 						p1BigBox3.setText(Integer.toString(selectedPins + secondSelectedPins));
+						p1BigBox3.setVisible(true);
 					}
 					if (scorePosition == 6)
 					{
 						p2SmallBox6.setText(Integer.toString(secondSelectedPins));
 						p2BigBox3.setText(Integer.toString(selectedPins + secondSelectedPins));
+						p2BigBox3.setVisible(true);
 					}
 					rollStatusLabel.setText("Next Player!");
 					rollAgainButton.setEnabled(false);
