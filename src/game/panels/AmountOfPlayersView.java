@@ -33,8 +33,7 @@ public class AmountOfPlayersView extends JPanel
 		buildListeners(this.twoplayerButton);
 		buildListeners(this.threeplayerButton);
 		buildListeners(this.fourplayerButton);
-		buildListeners(this.backLabel);
-		
+		buildListeners(this.backLabel);	
 	}
 	
 	private void buildPanel()
@@ -42,10 +41,10 @@ public class AmountOfPlayersView extends JPanel
 		this.setVisible(false);
 		this.setOpaque(false);
 		this.setLayout(baseLayout);
-		add(this.twoplayerButton);
-		add(this.threeplayerButton);
-		add(this.fourplayerButton);
-		add(this.backLabel);
+		this.add(this.twoplayerButton);
+		this.add(this.threeplayerButton);
+		this.add(this.fourplayerButton);
+		this.add(this.backLabel);
 	}
 
 	private void buildListeners(JLabel button)

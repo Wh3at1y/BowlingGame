@@ -31,19 +31,17 @@ public class UsernameView extends JPanel
 		labelFont = new Font("Sitka Text", Font.BOLD, 30);
 		
 		username1 = new JTextField();
-		baselayout.putConstraint(SpringLayout.NORTH, username1, 615, SpringLayout.NORTH, this);
 		username1.setFont(new Font("Sitka Text", Font.BOLD, 15));
 		player1 = new JLabel("Player 1:");
 		player1.setFont(new Font("Sitka Text", Font.ITALIC, 15));
 		
 		username2 = new JTextField();
-		baselayout.putConstraint(SpringLayout.NORTH, username2, 40, SpringLayout.SOUTH, username1);
 		username2.setFont(new Font("Sitka Text", Font.BOLD, 15));
 		player2 = new JLabel("Player 2:");
 		player2.setFont(new Font("Sitka Text", Font.ITALIC, 15));
 		
 		username3 = new JTextField();
-		username3.setFont(new Font("Sitka Text", Font.BOLD, 15));
+		username3.setFont(new Font("Sitka Text", Font.BOLD, 15));	
 		player3 = new JLabel("Player 3:");
 		player3.setFont(new Font("Sitka Text", Font.ITALIC, 15));
 		
@@ -59,8 +57,7 @@ public class UsernameView extends JPanel
 		buildPlacements();
 		displayTextFields();
 		buildListeners(this.backLabel);
-		buildListeners(this.startgameButton);
-		
+		buildListeners(this.startgameButton);		
 	}
 	
 	private void buildPanel()
@@ -68,16 +65,16 @@ public class UsernameView extends JPanel
 		this.setLayout(this.baselayout);
 		this.setVisible(false);
 		this.setOpaque(false);
-		add(this.username1);
-		add(this.username2);
-		add(this.username3);
-		add(this.username4);
-		add(this.player1);
-		add(this.player2);
-		add(this.player3);
-		add(this.player4);
-		add(this.backLabel);
-		add(this.startgameButton);
+		this.add(this.username1);
+		this.add(this.username2);
+		this.add(this.username3);
+		this.add(this.username4);
+		this.add(this.player1);
+		this.add(this.player2);
+		this.add(this.player3);
+		this.add(this.player4);
+		this.add(this.backLabel);
+		this.add(this.startgameButton);
 	}
 	
 	private void buildListeners(JLabel button)
@@ -103,8 +100,7 @@ public class UsernameView extends JPanel
 					allViewsPanel.setBackgroundStatus(true);
 					allViewsPanel.getLogo().setVisible(false);
 					allViewsPanel.getBowlingView().updatePlayerUsernames();
-					allViewsPanel.openBowlingGameView();
-					
+					allViewsPanel.openBowlingGameView();	
 				}
 			}
 			public void mouseClicked(MouseEvent e){}
@@ -118,8 +114,7 @@ public class UsernameView extends JPanel
 			{	button.setForeground(Color.BLACK);	}
 			
 			public void mouseReleased(MouseEvent e){}
-		}
-			);
+		});
 	}
 
 	public void setAmountOfPlayers(int amountofPlayers)
@@ -169,11 +164,13 @@ public class UsernameView extends JPanel
 	
 	public void buildPlacements()
 	{
+		baselayout.putConstraint(SpringLayout.NORTH, username1, 615, SpringLayout.NORTH, this);
 		baselayout.putConstraint(SpringLayout.WEST, username1, 920, SpringLayout.WEST, this);
 		baselayout.putConstraint(SpringLayout.EAST, username1, -855, SpringLayout.EAST, this);
 		baselayout.putConstraint(SpringLayout.NORTH, player1, 620, SpringLayout.NORTH, this);
 		baselayout.putConstraint(SpringLayout.WEST, player1, 850, SpringLayout.WEST, this);
 		baselayout.putConstraint(SpringLayout.EAST, player1, -850, SpringLayout.EAST, this);
+		baselayout.putConstraint(SpringLayout.NORTH, username2, 40, SpringLayout.SOUTH, username1);
 		baselayout.putConstraint(SpringLayout.EAST, username2, 0, SpringLayout.EAST, username1);
 		baselayout.putConstraint(SpringLayout.WEST, username2, 0, SpringLayout.WEST, username1);
 		baselayout.putConstraint(SpringLayout.NORTH, player2, 50, SpringLayout.SOUTH, player1);

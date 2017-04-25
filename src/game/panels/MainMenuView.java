@@ -39,9 +39,9 @@ public class MainMenuView extends JPanel
 	{
 		this.setOpaque(false);
 		this.setLayout(baseLayout);
-		this.add(startLabel);
-		this.add(optionsLabel);
-		this.add(exitLabel);
+		this.add(this.startLabel);
+		this.add(this.optionsLabel);
+		this.add(this.exitLabel);
 	}
 
 	private void buildListeners(JLabel button)

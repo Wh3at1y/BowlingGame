@@ -40,24 +40,16 @@ public class AllViewsPanel extends JPanel
 	}
 
 	public void setMusicToggle()
-	{
-		soundPlayer.menuMusicStatus();
-	}
+	{	soundPlayer.menuMusicStatus();	}
 
 	public void setButtonToggle(boolean buttonStatus)
-	{
-		soundPlayer.setButtonClicks(buttonStatus);
-	}
+	{	soundPlayer.setButtonClicks(buttonStatus);	}
 
 	public void playButtonHovor()
-	{
-		soundPlayer.buttonHovorStatus();
-	}
+	{	soundPlayer.buttonHovorStatus();	}
 
 	public void playButtonClick()
-	{
-		soundPlayer.buttonClickStatus();
-	}
+	{	soundPlayer.buttonClickStatus();		}
 
 	private void buildPanel()
 	{
@@ -155,14 +147,10 @@ public class AllViewsPanel extends JPanel
 	}
 
 	public void exitButtonOperation()
-	{
-		System.exit(0);
-	}
+	{	System.exit(0);	}
 
 	public JLabel getLogo()
-	{
-		return this.logoImage;
-	}
+	{	return this.logoImage;		}
 
 	public void setBackgroundStatus(boolean status)
 	{
@@ -171,29 +159,19 @@ public class AllViewsPanel extends JPanel
 	}
 
 	public MainMenuView getNewGamePanel()
-	{
-		return this.mainMenuView;
-	}
+	{	return this.mainMenuView;	}
 
 	public NewGameView getMainMenuPanel()
-	{
-		return this.newGameView;
-	}
+	{	return this.newGameView;		}
 
 	public OptionsView getOptionsMenuPanel()
-	{
-		return this.optionsMenuView;
-	}
+	{	return this.optionsMenuView;	}
 
 	public UsernameView getUsernameView()
-	{
-		return this.usernamePanel;
-	}
+	{	return this.usernamePanel;		}
 	
 	public BowlingGameView getBowlingView()
-	{
-		return this.bowlingGameView;
-	}
+	{	return this.bowlingGameView;	}
 
 	private void buildWindow()
 	{

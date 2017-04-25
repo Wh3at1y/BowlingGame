@@ -29,10 +29,10 @@ public class NewGameView extends JPanel
 		this.setVisible(false);
 		this.setOpaque(false);
 		this.setLayout(baseLayout);
-		add(this.backLabel);
-		add(this.twoplayersLabel);
-		add(this.threeplayersLabel);
-		add(this.fourplayersLabel);
+		this.add(this.backLabel);
+		this.add(this.twoplayersLabel);
+		this.add(this.threeplayersLabel);
+		this.add(this.fourplayersLabel);
 	}
 
 	private void buildWindow()

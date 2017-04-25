@@ -23,15 +23,10 @@ public class OptionsView extends JPanel
 		baseLayout = new SpringLayout();
 				
 		labelFont = new Font("Sitka Text", Font.BOLD, 30);
-		toggleMusicLabel = new JLabel("<html>Toggle Music:<br><div style='text-align: center;'>ON</div></html>");
-		baseLayout.putConstraint(SpringLayout.NORTH, toggleMusicLabel, 600, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, toggleMusicLabel, 855, SpringLayout.WEST, this);
+		
+		toggleMusicLabel = new JLabel("<html>Toggle Music:<br><div style='text-align: center;'>ON</div></html>");	
 		toggleClicksLabel = new JLabel("<html><div style='text-align: center;'>Toggle Button Sounds:<br>ON</div></html>");
-		baseLayout.putConstraint(SpringLayout.NORTH, toggleClicksLabel, 700, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, toggleClicksLabel, 790, SpringLayout.WEST, this);
 		backLabel = new JLabel("Back");
-		baseLayout.putConstraint(SpringLayout.NORTH, backLabel, 820, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, backLabel, 135, SpringLayout.WEST, toggleClicksLabel);
 				
 		toggleClicks = true;
 		toggleMusic = true;
@@ -48,9 +43,9 @@ public class OptionsView extends JPanel
 		this.setVisible(false);
 		this.setOpaque(false);
 		this.setLayout(baseLayout);
-		add(toggleMusicLabel);
-		add(toggleClicksLabel);
-		add(backLabel);
+		this.add(this.toggleMusicLabel);
+		this.add(this.toggleClicksLabel);
+		this.add(this.backLabel);
 	}
 
 	private void buildListeners(JLabel button)
@@ -88,8 +83,7 @@ public class OptionsView extends JPanel
 					{
 						toggleClicks = false;
 						allViewsPanel.setButtonToggle(toggleClicks);
-						toggleClicksLabel.setText("<html><div style='text-align: center;'>Toggle Button Sounds:<br>OFF</div></html>");
-								
+						toggleClicksLabel.setText("<html><div style='text-align: center;'>Toggle Button Sounds:<br>OFF</div></html>");		
 					}
 					else if(toggleClicks == false)
 					{
@@ -114,6 +108,12 @@ public class OptionsView extends JPanel
 		
 	private void buildWindow()
 	{
+		baseLayout.putConstraint(SpringLayout.NORTH, toggleMusicLabel, 600, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, toggleMusicLabel, 855, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, toggleClicksLabel, 700, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, toggleClicksLabel, 790, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, backLabel, 820, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, backLabel, 135, SpringLayout.WEST, toggleClicksLabel);
 	}
 		
 	public JLabel getToggleMusicLabel()
