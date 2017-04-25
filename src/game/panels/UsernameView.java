@@ -86,6 +86,20 @@ public class UsernameView extends JPanel
 	//Sets action listeners on the buttons on this panel.
 	private void buildListeners(JLabel button)
 	{
+		//Listens for the Enter key on username 2 (THANKS JO)
+		username2.addActionListener(new ActionListener()
+				{
+				public void actionPerformed(ActionEvent enterButton)
+				{
+					allViewsPanel.setBackgroundStatus(true);
+					allViewsPanel.getLogo().setVisible(false);
+					allViewsPanel.getBowlingView().updatePlayerUsernames();
+					allViewsPanel.openBowlingGameView();	
+				}
+				});
+		
+	
+				
 		button.setFont(this.labelFont);	button.setForeground(Color.BLACK);
 		
 		button.addMouseListener(new MouseListener()
