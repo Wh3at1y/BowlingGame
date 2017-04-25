@@ -587,6 +587,7 @@ public class BowlingGameView extends JPanel
 		this.rollButton.setEnabled(true);
 		this.rollButton.setVisible(true);
 		this.rollAgainButton.setVisible(false);
+		this.nextPlayerButton.setEnabled(false);
 	}
 
 	private void buildWindow()
