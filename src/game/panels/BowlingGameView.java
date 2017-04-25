@@ -383,33 +383,33 @@ public class BowlingGameView extends JPanel
 					if (scorePosition == 1)
 					{
 						p1SmallBox2.setText("/");
-						p1SmallBox2.setVisible(false);
 						p1BigBox1.setText(Integer.toString(10));
+						p1BigBox1.setVisible(false);
 					} else if (scorePosition == 2)
 					{
 						p2SmallBox2.setText("/");
-						p2SmallBox2.setVisible(false);
 						p2BigBox1.setText(Integer.toString(10));
+						p2BigBox1.setVisible(false);
 					} else if (scorePosition == 3)
 					{
 						p1SmallBox4.setText("/");
-						p1SmallBox4.setVisible(false);
 						p1BigBox2.setText(Integer.toString(10));
+						p1BigBox2.setVisible(false);
 					} else if (scorePosition == 4)
 					{
 						p2SmallBox4.setText("/");
-						p2SmallBox4.setVisible(false);
 						p2BigBox2.setText(Integer.toString(10));
+						p2BigBox2.setVisible(false);
 					} else if (scorePosition == 5)
 					{
 						p1SmallBox6.setText("/");
-						p1SmallBox6.setVisible(false);
 						p1BigBox3.setText(Integer.toString(10));
+						p1BigBox3.setVisible(false);
 					} else if (scorePosition == 6)
 					{
 						p2SmallBox6.setText("/");
-						p2SmallBox6.setVisible(false);
 						p2BigBox3.setText(Integer.toString(10));
+						p2BigBox3.setVisible(false);
 					}
 
 					rollStatusLabel.setText("SPARE");
