@@ -455,6 +455,14 @@ public class BowlingGameView extends JPanel
 				allViewsPanel.openAmountOfPlayersView();		
 			}
 		});
+		
+		quitGameButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				System.exit(0);	
+			}
+		});
 
 	}
 
