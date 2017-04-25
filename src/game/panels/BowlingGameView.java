@@ -461,6 +461,12 @@ public class BowlingGameView extends JPanel
 					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername2().getText());
 
 				rollStatusLabel.setText("");
+				
+				if(scorePosition == 7)
+				{
+					rollButton.setVisible(false);
+					nextPlayerButton.setVisible(false);
+				}
 			}
 		});
 
