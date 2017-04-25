@@ -286,42 +286,42 @@ public class BowlingGameView extends JPanel
 					// p1BigBox1
 					if (scorePosition == 1)
 					{
-						p1BigBox1.setText("");
+						p1BigBox1.setText("10");
 						p1SmallBox1.setText("X");
 						p1SmallBox2.setText("");
 					}
 					// p1BigBox2
 					else if (scorePosition == 2)
 					{
-						p2BigBox1.setText("");
+						p2BigBox1.setText("10");
 						p2SmallBox1.setText("X");
 						p2SmallBox2.setText("");
 					}
 					// p1BigBox3
 					else if (scorePosition == 3)
 					{
-						p1BigBox2.setText("");
+						p1BigBox2.setText("10");
 						p1SmallBox3.setText("X");
 						p1SmallBox4.setText("");
 					}
 					// p2BigBox1
 					else if (scorePosition == 4)
 					{
-						p2BigBox2.setText("");
+						p2BigBox2.setText("10");
 						p2SmallBox3.setText("X");
 						p2SmallBox4.setText("");
 					}
 					// p2BigBox2
 					else if (scorePosition == 5)
 					{
-						p1BigBox3.setText("");
+						p1BigBox3.setText("10");
 						p1SmallBox5.setText("X");
 						p1SmallBox6.setText("");
 					}
 					// p2BigBox3
 					else if (scorePosition == 6)
 					{
-						p2BigBox3.setText("");
+						p2BigBox3.setText("10");
 						p2SmallBox5.setText("X");
 						p2SmallBox6.setText("");
 						
@@ -532,26 +532,26 @@ public class BowlingGameView extends JPanel
 		int player2Score = 0;
 		
 		if(this.p1SmallBox1.getText().contains("X"))
-			this.p1StrikeCount = this.p1StrikeCount + 2;
+			this.p1StrikeCount = this.p1StrikeCount + 10;
 		if(this.p1SmallBox3.getText().contains("X"))
-			this.p1StrikeCount = this.p1StrikeCount + 2;
+			this.p1StrikeCount = this.p1StrikeCount + 10;
 		if(this.p1SmallBox5.getText().contains("X"))
-			this.p1StrikeCount = this.p1StrikeCount + 2;
+			this.p1StrikeCount = this.p1StrikeCount + 10;
 		if(this.p1SmallBox2.getText().contains("/"))
-			this.p1SpareCount++;
+			this.p1SpareCount = this.p1SpareCount + 10;
 		if(this.p1SmallBox4.getText().contains("/"))
-			this.p1SpareCount++;
+			this.p1SpareCount = this.p1SpareCount + 10;
 		if(this.p1SmallBox6.getText().contains("/"))
-			this.p1SpareCount++;
+			this.p1SpareCount = this.p1SpareCount + 10;
 		
 		
-			player1Score = 	p1StrikeCount +
+			player1Score =
 											Integer.parseInt(this.p1BigBox1.getText()) +
 											Integer.parseInt(this.p1BigBox2.getText()) +
 											Integer.parseInt(this.p1BigBox3.getText());
 
 		
-		player2Score = 	p2StrikeCount +
+		player2Score = 	
 											Integer.parseInt(this.p2BigBox1.getText()) +
 											Integer.parseInt(this.p2BigBox2.getText()) +
 											Integer.parseInt(this.p2BigBox3.getText());
