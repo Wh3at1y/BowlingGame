@@ -534,7 +534,7 @@ public class BowlingGameView extends JPanel
 		else if (player1Score < player2Score)
 			rollStatusLabel.setText(allViewsPanel.getUsernameView().getUsername2().getText() + " WINS!");
 		else
-			rollStatusLabel.setText("TIE?");
+			rollStatusLabel.setText("TIE GAME");
 	}
 
 	// Clears the Score board for the next game
