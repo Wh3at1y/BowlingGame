@@ -31,11 +31,13 @@ public class UsernameView extends JPanel
 		labelFont = new Font("Sitka Text", Font.BOLD, 30);
 		
 		username1 = new JTextField();
+		baselayout.putConstraint(SpringLayout.NORTH, username1, 615, SpringLayout.NORTH, this);
 		username1.setFont(new Font("Sitka Text", Font.BOLD, 15));
 		player1 = new JLabel("Player 1:");
 		player1.setFont(new Font("Sitka Text", Font.ITALIC, 15));
 		
 		username2 = new JTextField();
+		baselayout.putConstraint(SpringLayout.NORTH, username2, 40, SpringLayout.SOUTH, username1);
 		username2.setFont(new Font("Sitka Text", Font.BOLD, 15));
 		player2 = new JLabel("Player 2:");
 		player2.setFont(new Font("Sitka Text", Font.ITALIC, 15));
@@ -167,14 +169,12 @@ public class UsernameView extends JPanel
 	
 	public void buildPlacements()
 	{
-		baselayout.putConstraint(SpringLayout.NORTH, username1, 620, SpringLayout.NORTH, this);
 		baselayout.putConstraint(SpringLayout.WEST, username1, 920, SpringLayout.WEST, this);
 		baselayout.putConstraint(SpringLayout.EAST, username1, -855, SpringLayout.EAST, this);
 		baselayout.putConstraint(SpringLayout.NORTH, player1, 620, SpringLayout.NORTH, this);
 		baselayout.putConstraint(SpringLayout.WEST, player1, 850, SpringLayout.WEST, this);
 		baselayout.putConstraint(SpringLayout.EAST, player1, -850, SpringLayout.EAST, this);
 		baselayout.putConstraint(SpringLayout.EAST, username2, 0, SpringLayout.EAST, username1);
-		baselayout.putConstraint(SpringLayout.NORTH, username2, 45, SpringLayout.SOUTH, username1);
 		baselayout.putConstraint(SpringLayout.WEST, username2, 0, SpringLayout.WEST, username1);
 		baselayout.putConstraint(SpringLayout.NORTH, player2, 50, SpringLayout.SOUTH, player1);
 		baselayout.putConstraint(SpringLayout.WEST, player2, 0, SpringLayout.WEST, player1);

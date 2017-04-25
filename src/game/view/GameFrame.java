@@ -1,6 +1,7 @@
 package game.view;
 
 import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 public class GameFrame extends JFrame
 {
@@ -8,6 +9,13 @@ public class GameFrame extends JFrame
 
 	public GameFrame()
 	{
+		try 
+	    { 
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+	    } 
+	    catch(Exception e){ 
+	    }
+		
 		basePanel = new AllViewsPanel();
 		buildFrame();
 	}

@@ -140,30 +140,42 @@ public class BowlingGameView extends JPanel
 		this.rollStatusLabel.setFont(new Font("Sitka Text", Font.BOLD, 80));
 		
 		rollButton = new JButton("Roll Ball");
+		layout.putConstraint(SpringLayout.NORTH, rollButton, -20, SpringLayout.NORTH, playerUp);
+		layout.putConstraint(SpringLayout.WEST, rollButton, 400, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, rollButton, 150, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.EAST, rollButton, 600, SpringLayout.WEST, this);
 		rollButton.setPreferredSize(new Dimension(120, 50));
 		rollButton.setFont(new Font("Sitka Text", Font.BOLD, 12));
 		nextPlayerButton = new JButton("Next Player");
+		layout.putConstraint(SpringLayout.NORTH, nextPlayerButton, -20, SpringLayout.NORTH, playerUp);
+		layout.putConstraint(SpringLayout.WEST, nextPlayerButton, -600, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.SOUTH, nextPlayerButton, 0, SpringLayout.SOUTH, rollButton);
+		layout.putConstraint(SpringLayout.EAST, nextPlayerButton, -400, SpringLayout.EAST, this);
 		nextPlayerButton.setPreferredSize(new Dimension(160, 50));
 		nextPlayerButton.setFont(new Font("Sitka Text", Font.BOLD, 12));
 		rollAgainButton = new JButton("Roll Again");
-		layout.putConstraint(SpringLayout.WEST, nextPlayerButton, 38, SpringLayout.EAST, rollAgainButton);
+		layout.putConstraint(SpringLayout.NORTH, rollAgainButton, -21, SpringLayout.NORTH, playerUp);
+		layout.putConstraint(SpringLayout.WEST, rollAgainButton, 400, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, rollAgainButton, 150, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.EAST, rollAgainButton, 600, SpringLayout.WEST, this);
 		rollAgainButton.setPreferredSize(new Dimension(100, 50));
 		rollAgainButton.setFont(new Font("Sitka Text", Font.BOLD, 12));
 		playAgainButton = new JButton("Play Again?");
-		layout.putConstraint(SpringLayout.NORTH, playAgainButton, 38, SpringLayout.SOUTH, rollButton);
+		layout.putConstraint(SpringLayout.WEST, playAgainButton, -180, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.EAST, playAgainButton, -10, SpringLayout.EAST, this);
 		playAgainButton.setPreferredSize(new Dimension(120, 50));
 		playAgainButton.setFont(new Font("Sitka Text", Font.BOLD, 12));
-		layout.putConstraint(SpringLayout.WEST, playAgainButton, 0, SpringLayout.WEST, rollButton);
 		quitGameButton = new JButton("Exit Game");
+		layout.putConstraint(SpringLayout.SOUTH, playAgainButton, -10, SpringLayout.NORTH, quitGameButton);
+		layout.putConstraint(SpringLayout.WEST, quitGameButton, -180, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.SOUTH, quitGameButton, -325, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.EAST, quitGameButton, -10, SpringLayout.EAST, this);
 		quitGameButton.setPreferredSize(new Dimension(100, 50));
 		quitGameButton.setFont(new Font("Sitka Text", Font.BOLD, 12));
-		layout.putConstraint(SpringLayout.NORTH, quitGameButton, 38, SpringLayout.SOUTH, rollAgainButton);
-		layout.putConstraint(SpringLayout.WEST, quitGameButton, 0, SpringLayout.WEST, rollAgainButton);
 		returnToMenuButton = new JButton("Return to Main Menu");
-		layout.putConstraint(SpringLayout.NORTH, returnToMenuButton, 38, SpringLayout.SOUTH, nextPlayerButton);
-		layout.putConstraint(SpringLayout.EAST, nextPlayerButton, 0, SpringLayout.EAST, returnToMenuButton);
-		layout.putConstraint(SpringLayout.WEST, returnToMenuButton, 38, SpringLayout.EAST, quitGameButton);
-		layout.putConstraint(SpringLayout.EAST, returnToMenuButton, -105, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.WEST, returnToMenuButton, 0, SpringLayout.WEST, playAgainButton);
+		layout.putConstraint(SpringLayout.SOUTH, returnToMenuButton, -10, SpringLayout.NORTH, playAgainButton);
+		layout.putConstraint(SpringLayout.EAST, returnToMenuButton, -10, SpringLayout.EAST, this);
 		returnToMenuButton.setPreferredSize(new Dimension(160, 50));
 		returnToMenuButton.setFont(new Font("Sitka Text", Font.BOLD, 12));
 
@@ -176,7 +188,7 @@ public class BowlingGameView extends JPanel
 
 		this.rollStatusGif = new JLabel();
 		layout.putConstraint(SpringLayout.NORTH, rollStatusGif, 10, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.EAST, rollStatusGif, -156, SpringLayout.WEST, playAgainButton);
+		layout.putConstraint(SpringLayout.WEST, rollStatusGif, 740, SpringLayout.WEST, this);
 		this.rollStatusGif.setVisible(false);
 
 		this.scorePosition = 1;
@@ -580,11 +592,6 @@ public class BowlingGameView extends JPanel
 		layout.putConstraint(SpringLayout.SOUTH, p2SmallBox5, -40, SpringLayout.SOUTH, player2Username);
 		layout.putConstraint(SpringLayout.WEST, p2SmallBox6, 1810, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.SOUTH, p2SmallBox6, 40, SpringLayout.SOUTH, player2Username);
-		layout.putConstraint(SpringLayout.NORTH, rollButton, 22, SpringLayout.NORTH, this);
-		layout.putConstraint(SpringLayout.EAST, rollButton, -444, SpringLayout.EAST, this);
-		layout.putConstraint(SpringLayout.NORTH, nextPlayerButton, 0, SpringLayout.NORTH, rollButton);
-		layout.putConstraint(SpringLayout.NORTH, rollAgainButton, 0, SpringLayout.NORTH, rollButton);
-		layout.putConstraint(SpringLayout.WEST, rollAgainButton, 38, SpringLayout.EAST, rollButton);
 	}
 
 	public void setPlayer1Username(JLabel player1Username)
