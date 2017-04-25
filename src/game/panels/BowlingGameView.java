@@ -198,11 +198,11 @@ public class BowlingGameView extends JPanel
 	
 	public void updatePlayerUsernames()
 	{
-		player1Username.setText(this.allViewsPanel.getUsernameView().getUsername1());
-		player2Username.setText(this.allViewsPanel.getUsernameView().getUsername2());
-		player3Username.setText(this.allViewsPanel.getUsernameView().getUsername3());
-		player4Username.setText(this.allViewsPanel.getUsernameView().getUsername4());
-		rollingUsername.setText(this.allViewsPanel.getUsernameView().getUsername1());
+		player1Username.setText(this.allViewsPanel.getUsernameView().getUsername1().getText());
+		player2Username.setText(this.allViewsPanel.getUsernameView().getUsername2().getText());
+		player3Username.setText(this.allViewsPanel.getUsernameView().getUsername3().getText());
+		player4Username.setText(this.allViewsPanel.getUsernameView().getUsername4().getText());
+		rollingUsername.setText(this.allViewsPanel.getUsernameView().getUsername1().getText());
 	}
 
 	private void buildPanel()
@@ -443,15 +443,15 @@ public class BowlingGameView extends JPanel
 				rollButton.setVisible(true);
 
 				if (scorePosition == 2)
-					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername2());
+					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername2().getText());
 				else if (scorePosition == 3)
-					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername1());
+					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername1().getText());
 				else if (scorePosition == 4)
-					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername2());
+					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername2().getText());
 				else if (scorePosition == 5)
-					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername1());
+					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername1().getText());
 				else if (scorePosition == 6)
-					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername2());
+					rollingUsername.setText(allViewsPanel.getUsernameView().getUsername2().getText());
 				
 				rollStatusLabel.setText("");
 			}
@@ -464,6 +464,11 @@ public class BowlingGameView extends JPanel
 				allViewsPanel.openMainMenuView();
 				allViewsPanel.setBackgroundStatus(false);
 				allViewsPanel.getLogo().setVisible(true);
+				allViewsPanel.getUsernameView().getUsername1().setText("");
+				allViewsPanel.getUsernameView().getUsername2().setText("");
+				allViewsPanel.getUsernameView().getUsername3().setText("");
+				allViewsPanel.getUsernameView().getUsername4().setText("");
+				clearScoreBoard();
 			}
 		});
 		
@@ -475,7 +480,12 @@ public class BowlingGameView extends JPanel
 				allViewsPanel.closeUserNameView();
 				allViewsPanel.setBackgroundStatus(false);
 				allViewsPanel.getLogo().setVisible(true);
-				allViewsPanel.openAmountOfPlayersView();		
+				allViewsPanel.openAmountOfPlayersView();	
+				allViewsPanel.getUsernameView().getUsername1().setText("");
+				allViewsPanel.getUsernameView().getUsername2().setText("");
+				allViewsPanel.getUsernameView().getUsername3().setText("");
+				allViewsPanel.getUsernameView().getUsername4().setText("");
+				clearScoreBoard();
 			}
 		});
 		
@@ -488,6 +498,31 @@ public class BowlingGameView extends JPanel
 		});
 
 	}
+	
+	private void clearScoreBoard()
+	{
+		this.p1BigBox1.setText("");
+		this.p1SmallBox1.setText("");
+		this.p1SmallBox2.setText("");
+		this.p1BigBox2.setText("");
+		this.p1SmallBox3.setText("");
+		this.p1SmallBox4.setText("");
+		this.p1BigBox3.setText("");
+		this.p1SmallBox5.setText("");
+		this.p1SmallBox6.setText("");
+		this.p2BigBox1.setText("");
+		this.p2SmallBox1.setText("");
+		this.p2SmallBox2.setText("");
+		this.p2BigBox2.setText("");
+		this.p2SmallBox3.setText("");
+		this.p2SmallBox4.setText("");
+		this.p2BigBox3.setText("");
+		this.p2SmallBox5.setText("");
+		this.p2SmallBox6.setText("");
+		this.rollStatusLabel.setText("");
+		this.rollStatusGif.setVisible(false);
+	}
+
 
 	private void buildWindow()
 	{
