@@ -45,6 +45,9 @@ public class BowlingGameView extends JPanel
     private JButton rollButton;
     private JButton rollAgainButton;
     private JButton nextPlayerButton;
+    private JButton playAgainButton;
+    private JButton quitGameButton;
+    private JButton returnToMenuButton;
 
     private int selectedPins;
     private int secondSelectedPins;  
@@ -132,10 +135,23 @@ public class BowlingGameView extends JPanel
         rollButton = new JButton("Roll Ball"); 
         nextPlayerButton = new JButton("Next Player"); 
         rollAgainButton = new JButton("Roll Again"); 
-            
+        playAgainButton = new JButton("Play Again?");
+        layout.putConstraint(SpringLayout.WEST, playAgainButton, 0, SpringLayout.WEST, rollButton);
+        quitGameButton = new JButton("Exit Game");
+        layout.putConstraint(SpringLayout.NORTH, playAgainButton, 0, SpringLayout.NORTH, quitGameButton);
+        layout.putConstraint(SpringLayout.NORTH, quitGameButton, 38, SpringLayout.SOUTH, rollAgainButton);
+        layout.putConstraint(SpringLayout.WEST, quitGameButton, 0, SpringLayout.WEST, rollAgainButton);
+        returnToMenuButton = new JButton("Return to Main Menu");
+        layout.putConstraint(SpringLayout.NORTH, returnToMenuButton, 38, SpringLayout.SOUTH, nextPlayerButton);
+        layout.putConstraint(SpringLayout.WEST, returnToMenuButton, 0, SpringLayout.WEST, nextPlayerButton);
+       
+                  
         this.rollButton.disable();
         this.nextPlayerButton.setVisible(false);
         this.rollAgainButton.setVisible(false);
+        this.playAgainButton.setVisible(true);
+        this.quitGameButton.setVisible(true);
+        this.returnToMenuButton.setVisible(true);
             
         //XStrikeScore = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/XRedStrike.png")));
         //spareGif = new JLabel(new ImageIcon(BowlingGameView.class.getResource("/resources/SpareGif.png")));
@@ -169,6 +185,9 @@ public class BowlingGameView extends JPanel
         this.add(this.rollButton);
         this.add(this.nextPlayerButton);
         this.add(this.rollAgainButton);
+        this.add(this.playAgainButton);
+        this.add(this.quitGameButton);
+        this.add(this.returnToMenuButton);
             
         this.add(this.player1Username);
         this.add(this.player2Username);
@@ -389,6 +408,26 @@ public class BowlingGameView extends JPanel
               //strikeGif.setVisible(false);
               nextPlayerButton.setVisible(false);
               rollButton.setVisible(true);   
+            }
+         });
+         
+         returnToMenuButton.addActionListener(new ActionListener()
+         {
+            private Object allViewsPanel;
+
+			public void actionPerformed(ActionEvent click)
+            {
+
+            }
+         });
+         
+         quitGameButton.addActionListener(new ActionListener()
+         {
+            private Object allViewsPanel;
+
+			public void actionPerformed(ActionEvent click)
+            {
+				System.exit(0);
             }
          });
         }
