@@ -395,9 +395,11 @@ public class BowlingGameView extends JPanel
 
 					rollStatusLabel.setText("SPARE");
 
-					rollStatusLabel.setText("Next Player!");
 					rollAgainButton.setEnabled(false);
 					nextPlayerButton.setEnabled(true);
+					
+					if(scorePosition == 6)
+						nextPlayerButton.setEnabled(false);
 
 				} else // ----NOT SPARE----
 				{
@@ -434,6 +436,9 @@ public class BowlingGameView extends JPanel
 					rollStatusLabel.setText("Next Player!");
 					rollAgainButton.setEnabled(false);
 					nextPlayerButton.setEnabled(true);
+					
+					if(scorePosition == 6)
+						nextPlayerButton.setEnabled(false);
 				}
 			}
 		});
@@ -464,8 +469,7 @@ public class BowlingGameView extends JPanel
 				
 				if(scorePosition == 7)
 				{
-					rollButton.setVisible(false);
-					nextPlayerButton.setVisible(false);
+					nextPlayerButton.setEnabled(false);
 				}
 			}
 		});
@@ -512,7 +516,7 @@ public class BowlingGameView extends JPanel
 		});
 
 	}
-
+	
 	private void clearScoreBoard()
 	{
 		scorePosition = 1;
@@ -536,6 +540,9 @@ public class BowlingGameView extends JPanel
 		this.p2SmallBox6.setText("");
 		this.rollStatusLabel.setText("");
 		this.rollStatusGif.setVisible(false);
+		this.rollButton.setEnabled(true);
+		this.rollButton.setVisible(true);
+		this.rollAgainButton.setVisible(false);
 	}
 
 	private void buildWindow()
